@@ -1,0 +1,23 @@
+{
+    "yesColaApp": {
+        "typeTransport": {
+            "home": {
+                "title": "Type Transports",
+                "createLabel": "Create a new Type Transport",
+                "createOrEditLabel": "Create or edit a Type Transport",
+                "search": "Search for Type Transport"
+            },
+            "created": "A new Type Transport is created with identifier {{ param }}",
+            "updated": "A Type Transport is updated with identifier {{ param }}",
+            "deleted": "A Type Transport is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Type Transport {{ id }}?"
+            },
+            "detail": {
+                "title": "Type Transport"
+            },
+            "libelle": "Libelle",
+            "moyenTransport": "Moyen Transport"
+        }
+    }
+}

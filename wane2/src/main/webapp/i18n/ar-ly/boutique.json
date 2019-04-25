@@ -1,0 +1,43 @@
+{
+    "yesColaApp": {
+        "boutique": {
+            "home": {
+                "title": "Boutiques",
+                "createLabel": "Create a new Boutique",
+                "createOrEditLabel": "Create or edit a Boutique",
+                "search": "Search for Boutique"
+            },
+            "created": "A new Boutique is created with identifier {{ param }}",
+            "updated": "A Boutique is updated with identifier {{ param }}",
+            "deleted": "A Boutique is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Boutique {{ id }}?"
+            },
+            "detail": {
+                "title": "Boutique"
+            },
+            "nomBoutique": "Nom Boutique",
+            "prenom": "Prenom",
+            "civilite": "Civilite",
+            "nom": "Nom",
+            "telephone": "Telephone",
+            "telproprietaire": "Telproprietaire",
+            "longitude": "Longitude",
+            "altitude": "Altitude",
+            "etat": "Etat",
+            "periodicite": "Periodicite",
+            "dateDernierCom": "Date Dernier Com",
+            "dateDernierLiv": "Date Dernier Liv",
+            "solde": "Solde",
+            "commandeEnCours": "Commande En Cours",
+            "stockInitial": "Stock Initial",
+            "detailRoute": "Detail Route",
+            "metier": "Metier",
+            "qualite": "Qualite",
+            "secteur": "Secteur",
+            "route": "Route",
+            "commande": "Commande",
+            "prospection": "Prospection"
+        }
+    }
+}

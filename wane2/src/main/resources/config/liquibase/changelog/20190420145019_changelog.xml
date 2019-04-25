@@ -1,0 +1,115 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-1">
+        <addColumn tableName="route">
+            <column name="commande_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-2">
+        <addColumn tableName="route">
+            <column name="gerant_commande_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-3">
+        <addColumn tableName="prospection">
+            <column name="gerant_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-4">
+        <addColumn tableName="route">
+            <column name="gerentlivraison_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-5">
+        <addColumn tableName="route">
+            <column name="livraison_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-6">
+        <addColumn tableName="commande">
+            <column name="livreur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-7">
+        <addColumn tableName="route">
+            <column name="livreur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-8">
+        <addColumn tableName="commande">
+            <column name="prevendeur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-9">
+        <addColumn tableName="prospection">
+            <column name="prevendeur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-10">
+        <addColumn tableName="route">
+            <column name="prevendeur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-11">
+        <addColumn tableName="commande">
+            <column name="prospection_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-12">
+        <addForeignKeyConstraint baseColumnNames="livreur_id" baseTableName="commande" constraintName="FK3us06dgnicn260gcf7fvg1kp0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-13">
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id" baseTableName="route" constraintName="FK3wypjhanwusoqm4ofpu0inyhq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-14">
+        <addForeignKeyConstraint baseColumnNames="gerentlivraison_id" baseTableName="route" constraintName="FK47ekk7k92s4g40pr6jmmyelv3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-15">
+        <addForeignKeyConstraint baseColumnNames="livreur_id" baseTableName="route" constraintName="FK4enuoq6vtqv6f2tc02c16o12o" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-16">
+        <addForeignKeyConstraint baseColumnNames="commande_id" baseTableName="route" constraintName="FK8lp2yq20ybq8xm1whsgk0lg7k" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_route"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-17">
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id" baseTableName="prospection" constraintName="FKgg24vw24ghknvn45swhrsxugg" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-18">
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id" baseTableName="commande" constraintName="FKjosyyfgn23unau6jr5orlf3hj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-19">
+        <addForeignKeyConstraint baseColumnNames="gerant_commande_id" baseTableName="route" constraintName="FKkvbpthqr7hxsx2qe637onekyv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-20">
+        <addForeignKeyConstraint baseColumnNames="prospection_id" baseTableName="commande" constraintName="FKldtjtj41nkdukep1x6b498fsj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="prospection"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-21">
+        <addForeignKeyConstraint baseColumnNames="livraison_id" baseTableName="route" constraintName="FKq9leed88at43a7nlaacjql164" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_route"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-22">
+        <addForeignKeyConstraint baseColumnNames="gerant_id" baseTableName="prospection" constraintName="FKtrqwmj9ctw9hddk3rr0ucbbja" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-23">
+        <dropForeignKeyConstraint baseTableName="commande" constraintName="fk_commande_user_id"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-24">
+        <dropForeignKeyConstraint baseTableName="prospection" constraintName="fk_prospection_user_id"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-25">
+        <dropForeignKeyConstraint baseTableName="route" constraintName="fk_route_type_route_id"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-26">
+        <dropForeignKeyConstraint baseTableName="route" constraintName="fk_route_user_id"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-27">
+        <dropColumn columnName="type_route_id" tableName="route"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-28">
+        <dropColumn columnName="user_id" tableName="commande"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-29">
+        <dropColumn columnName="user_id" tableName="prospection"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555771846246-30">
+        <dropColumn columnName="user_id" tableName="route"/>
+    </changeSet>
+</databaseChangeLog>

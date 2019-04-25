@@ -1,0 +1,23 @@
+{
+    "yesColaApp": {
+        "bonLivraison": {
+            "home": {
+                "title": "Bon Livraisons",
+                "createLabel": "Create a new Bon Livraison",
+                "createOrEditLabel": "Create or edit a Bon Livraison",
+                "search": "Search for Bon Livraison"
+            },
+            "created": "A new Bon Livraison is created with identifier {{ param }}",
+            "updated": "A Bon Livraison is updated with identifier {{ param }}",
+            "deleted": "A Bon Livraison is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bon Livraison {{ id }}?"
+            },
+            "detail": {
+                "title": "Bon Livraison"
+            },
+            "dateBl": "Date Bl",
+            "appro": "Appro"
+        }
+    }
+}

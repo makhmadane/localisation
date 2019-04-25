@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="boutique">
+            <h2><span jhiTranslate="yesColaApp.boutique.detail.title">Boutique</span> {{boutique.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.boutique.nomBoutique">Nom Boutique</span></dt>
+                <dd>
+                    <span>{{boutique.nomBoutique}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{boutique.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.civilite">Civilite</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'yesColaApp.Civilite.' + boutique.civilite}}">{{boutique.civilite}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.nom">Nom</span></dt>
+                <dd>
+                    <span>{{boutique.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{boutique.telephone}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.telproprietaire">Telproprietaire</span></dt>
+                <dd>
+                    <span>{{boutique.telproprietaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{boutique.longitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.altitude">Altitude</span></dt>
+                <dd>
+                    <span>{{boutique.altitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.etat">Etat</span></dt>
+                <dd>
+                    <span>{{boutique.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.periodicite">Periodicite</span></dt>
+                <dd>
+                    <span>{{boutique.periodicite}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.dateDernierCom">Date Dernier Com</span></dt>
+                <dd>
+                    <span>{{boutique.dateDernierCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.dateDernierLiv">Date Dernier Liv</span></dt>
+                <dd>
+                    <span>{{boutique.dateDernierLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.solde">Solde</span></dt>
+                <dd>
+                    <span>{{boutique.solde}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.commandeEnCours">Commande En Cours</span></dt>
+                <dd>
+                    <span>{{boutique.commandeEnCours}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.metier">Metier</span></dt>
+                <dd>
+                    <div *ngIf="boutique.metier">
+                        <a [routerLink]="['/metier', boutique.metier?.id, 'view']">{{boutique.metier?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.qualite">Qualite</span></dt>
+                <dd>
+                    <div *ngIf="boutique.qualite">
+                        <a [routerLink]="['/qualite', boutique.qualite?.id, 'view']">{{boutique.qualite?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.secteur">Secteur</span></dt>
+                <dd>
+                    <div *ngIf="boutique.secteur">
+                        <a [routerLink]="['/secteur', boutique.secteur?.id, 'view']">{{boutique.secteur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.route">Route</span></dt>
+                <dd>
+                    <span *ngFor="let route of boutique.routes; let last = last">
+                        <a [routerLink]="['/route', route?.id, 'view' ]">{{route.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.boutique.prospection">Prospection</span></dt>
+                <dd>
+                    <div *ngIf="boutique.prospection">
+                        <a [routerLink]="['/prospection', boutique.prospection?.id, 'view']">{{boutique.prospection?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/boutique', boutique.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

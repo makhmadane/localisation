@@ -1,0 +1,24 @@
+{
+    "yesColaApp": {
+        "typeRglment": {
+            "home": {
+                "title": "TypeRglments",
+                "createLabel": "Créer un nouveau Type Rglment",
+                "createOrEditLabel": "Créer ou éditer un Type Rglment",
+                "search": "Recherche pour Type Rglment"
+            },
+            "created": "Un nouveau Type Rglment a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Rglment avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Rglment avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Rglment {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Rglment"
+            },
+            "libelle": "Libelle",
+            "etat": "Etat",
+            "reglement": "Reglement"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "yesColaApp": {
+        "stockInitial": {
+            "home": {
+                "title": "Stock Initials",
+                "createLabel": "Create a new Stock Initial",
+                "createOrEditLabel": "Create or edit a Stock Initial",
+                "search": "Search for Stock Initial"
+            },
+            "created": "A new Stock Initial is created with identifier {{ param }}",
+            "updated": "A Stock Initial is updated with identifier {{ param }}",
+            "deleted": "A Stock Initial is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Stock Initial {{ id }}?"
+            },
+            "detail": {
+                "title": "Stock Initial"
+            },
+            "qteStockInit": "Qte Stock Init",
+            "qteStockEncours": "Qte Stock Encours",
+            "boutique": "Boutique",
+            "article": "Article"
+        }
+    }
+}

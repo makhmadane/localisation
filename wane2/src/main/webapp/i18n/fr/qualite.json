@@ -1,0 +1,24 @@
+{
+    "yesColaApp": {
+        "qualite": {
+            "home": {
+                "title": "Qualites",
+                "createLabel": "Créer un nouveau Qualite",
+                "createOrEditLabel": "Créer ou éditer un Qualite",
+                "search": "Recherche pour Qualite"
+            },
+            "created": "Un nouveau Qualite a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Qualite avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Qualite avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Qualite {{ id }} ?"
+            },
+            "detail": {
+                "title": "Qualite"
+            },
+            "libelle": "Libelle",
+            "etat": "Etat",
+            "boutique": "Boutique"
+        }
+    }
+}

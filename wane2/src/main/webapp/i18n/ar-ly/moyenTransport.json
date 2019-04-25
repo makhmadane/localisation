@@ -1,0 +1,29 @@
+{
+    "yesColaApp": {
+        "moyenTransport": {
+            "home": {
+                "title": "Moyen Transports",
+                "createLabel": "Create a new Moyen Transport",
+                "createOrEditLabel": "Create or edit a Moyen Transport",
+                "search": "Search for Moyen Transport"
+            },
+            "created": "A new Moyen Transport is created with identifier {{ param }}",
+            "updated": "A Moyen Transport is updated with identifier {{ param }}",
+            "deleted": "A Moyen Transport is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Moyen Transport {{ id }}?"
+            },
+            "detail": {
+                "title": "Moyen Transport"
+            },
+            "matricule": "Matricule",
+            "dateList": "Date List",
+            "etat": "Etat",
+            "vitesse": "Vitesse",
+            "capacite": "Capacite",
+            "typeTransport": "Type Transport",
+            "route": "Route",
+            "prospection": "Prospection"
+        }
+    }
+}

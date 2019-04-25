@@ -1,0 +1,24 @@
+{
+    "yesColaApp": {
+        "metier": {
+            "home": {
+                "title": "Metiers",
+                "createLabel": "Create a new Metier",
+                "createOrEditLabel": "Create or edit a Metier",
+                "search": "Search for Metier"
+            },
+            "created": "A new Metier is created with identifier {{ param }}",
+            "updated": "A Metier is updated with identifier {{ param }}",
+            "deleted": "A Metier is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Metier {{ id }}?"
+            },
+            "detail": {
+                "title": "Metier"
+            },
+            "libelle": "Libelle",
+            "etatmetier": "Etatmetier",
+            "boutique": "Boutique"
+        }
+    }
+}

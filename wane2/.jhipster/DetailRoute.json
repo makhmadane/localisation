@@ -1,0 +1,57 @@
+{
+    "name": "DetailRoute",
+    "fields": [
+        {
+            "fieldName": "heureACom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heureFCom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heureALiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heureFLiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "distanceDepot",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "detailRoute",
+            "relationshipName": "commande",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "route",
+            "otherEntityRelationshipName": "detailRoute",
+            "relationshipName": "route",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "detailRoute",
+            "relationshipName": "boutique",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190420135154",
+    "entityTableName": "detail_route",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

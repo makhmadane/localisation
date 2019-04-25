@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="parfum">
+            <h2><span jhiTranslate="yesColaApp.parfum.detail.title">Parfum</span> {{parfum.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.parfum.numeroparf">Numeroparf</span></dt>
+                <dd>
+                    <span>{{parfum.numeroparf}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.parfum.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{parfum.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.parfum.etat">Etat</span></dt>
+                <dd>
+                    <span>{{parfum.etat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/parfum', parfum.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

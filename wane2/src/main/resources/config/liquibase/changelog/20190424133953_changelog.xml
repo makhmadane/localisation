@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Makhmadanelo (generated)" id="1556113216073-1">
+        <addColumn tableName="employee">
+            <column name="tablette_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1556113216073-2">
+        <addUniqueConstraint columnNames="tablette_id" constraintName="UC_EMPLOYEETABLETTE_ID_COL" tableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1556113216073-3">
+        <addForeignKeyConstraint baseColumnNames="tablette_id" baseTableName="employee" constraintName="FK2uuwg9bodewqilxjxfu6mfxn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tablette"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1556113216073-4">
+        <dropForeignKeyConstraint baseTableName="tablette" constraintName="FK20u4xyim0avdhx4awg3gdlqkc"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1556113216073-5">
+        <dropUniqueConstraint constraintName="UC_TABLETTEEMPLOYEE_ID_COL" tableName="tablette"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1556113216073-6">
+        <dropColumn columnName="employee_id" tableName="tablette"/>
+    </changeSet>
+</databaseChangeLog>

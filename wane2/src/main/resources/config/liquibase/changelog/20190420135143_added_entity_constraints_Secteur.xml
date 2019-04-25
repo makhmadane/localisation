@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Secteur.
+    -->
+    <changeSet id="20190420135143-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="secteur_id"
+                                 baseTableName="secteur_route"
+                                 constraintName="fk_secteur_route_secteur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="secteur"/>
+        <addForeignKeyConstraint baseColumnNames="route_id"
+                                 baseTableName="secteur_route"
+                                 constraintName="fk_secteur_route_route_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="route"/>
+        
+        <addForeignKeyConstraint baseColumnNames="secteur_id"
+                                 baseTableName="secteur_commune"
+                                 constraintName="fk_secteur_commune_secteur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="secteur"/>
+        <addForeignKeyConstraint baseColumnNames="commune_id"
+                                 baseTableName="secteur_commune"
+                                 constraintName="fk_secteur_commune_commune_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="commune"/>
+        
+    </changeSet>
+</databaseChangeLog>

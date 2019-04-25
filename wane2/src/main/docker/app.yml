@@ -1,0 +1,20 @@
+version: '2'
+services:
+    yescola-app:
+        image: yescola
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://yescola-mysql:3306/yescola?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_JEST_URI=http://yescola-elasticsearch:9200
+        ports:
+            - 8080:8080
+    yescola-mysql:
+        extends:
+            file: mysql.yml
+            service: yescola-mysql
+    yescola-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: yescola-elasticsearch

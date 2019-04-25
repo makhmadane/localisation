@@ -1,0 +1,39 @@
+{
+    "name": "Tablette",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateServ",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeropuce",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "tablette",
+            "relationshipName": "employee",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190420135150",
+    "entityTableName": "tablette",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

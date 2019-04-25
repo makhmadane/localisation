@@ -1,0 +1,30 @@
+{
+    "name": "Qualite",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "qualite",
+            "relationshipName": "boutique"
+        }
+    ],
+    "changelogDate": "20190420135142",
+    "entityTableName": "qualite",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

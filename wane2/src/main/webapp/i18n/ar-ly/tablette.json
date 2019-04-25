@@ -1,0 +1,26 @@
+{
+    "yesColaApp": {
+        "tablette": {
+            "home": {
+                "title": "Tablettes",
+                "createLabel": "Create a new Tablette",
+                "createOrEditLabel": "Create or edit a Tablette",
+                "search": "Search for Tablette"
+            },
+            "created": "A new Tablette is created with identifier {{ param }}",
+            "updated": "A Tablette is updated with identifier {{ param }}",
+            "deleted": "A Tablette is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tablette {{ id }}?"
+            },
+            "detail": {
+                "title": "Tablette"
+            },
+            "numero": "Numero",
+            "dateServ": "Date Serv",
+            "etat": "Etat",
+            "numeropuce": "Numeropuce",
+            "employee": "Employee"
+        }
+    }
+}

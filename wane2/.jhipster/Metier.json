@@ -1,0 +1,30 @@
+{
+    "name": "Metier",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etatmetier",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "metier",
+            "relationshipName": "boutique"
+        }
+    ],
+    "changelogDate": "20190420135140",
+    "entityTableName": "metier",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

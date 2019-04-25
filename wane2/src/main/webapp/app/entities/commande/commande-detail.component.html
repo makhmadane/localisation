@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commande">
+            <h2><span jhiTranslate="yesColaApp.commande.detail.title">Commande</span> {{commande.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.commande.numCom">Num Com</span></dt>
+                <dd>
+                    <span>{{commande.numCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.dateCom">Date Com</span></dt>
+                <dd>
+                    <span>{{commande.dateCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.etat">Etat</span></dt>
+                <dd>
+                    <span>{{commande.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.montantLiv">Montant Liv</span></dt>
+                <dd>
+                    <span>{{commande.montantLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.montantRest">Montant Rest</span></dt>
+                <dd>
+                    <span>{{commande.montantRest}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.boutique">Boutique</span></dt>
+                <dd>
+                    <div *ngIf="commande.boutique">
+                        <a [routerLink]="['/boutique', commande.boutique?.id, 'view']">{{commande.boutique?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.detailRoute">Detail Route</span></dt>
+                <dd>
+                    <div *ngIf="commande.detailRoute">
+                        <a [routerLink]="['/detail-route', commande.detailRoute?.id, 'view']">{{commande.detailRoute?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.secteur">Secteur</span></dt>
+                <dd>
+                    <div *ngIf="commande.secteur">
+                        <a [routerLink]="['/secteur', commande.secteur?.id, 'view']">{{commande.secteur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.livreur">Livreur</span></dt>
+                <dd>
+                    <div *ngIf="commande.livreur">
+                        <a [routerLink]="['/employee', commande.livreur?.id, 'view']">{{commande.livreur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.prevendeur">Prevendeur</span></dt>
+                <dd>
+                    <div *ngIf="commande.prevendeur">
+                        <a [routerLink]="['/employee', commande.prevendeur?.id, 'view']">{{commande.prevendeur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commande.prospection">Prospection</span></dt>
+                <dd>
+                    <div *ngIf="commande.prospection">
+                        <a [routerLink]="['/prospection', commande.prospection?.id, 'view']">{{commande.prospection?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commande', commande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

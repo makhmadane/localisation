@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-secteur-heading" jhiTranslate="yesColaApp.secteur.home.createOrEditLabel">Create or edit a Secteur</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!secteur.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="secteur.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.secteur.nomSecteur" for="field_nomSecteur">Nom Secteur</label>
+                    <input type="text" class="form-control" name="nomSecteur" id="field_nomSecteur"
+                        [(ngModel)]="secteur.nomSecteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.secteur.longitutde" for="field_longitutde">Longitutde</label>
+                    <input type="text" class="form-control" name="longitutde" id="field_longitutde"
+                        [(ngModel)]="secteur.longitutde" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.secteur.altitude" for="field_altitude">Altitude</label>
+                    <input type="text" class="form-control" name="altitude" id="field_altitude"
+                        [(ngModel)]="secteur.altitude" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.secteur.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="secteur.etat" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="yesColaApp.secteur.route" for="field_route">Route</label>
+                    <select class="form-control" id="field_route" multiple name="route" [(ngModel)]="secteur.routes">
+                        <option [ngValue]="getSelected(secteur.routes, routeOption)" *ngFor="let routeOption of routes; trackBy: trackRouteById">{{routeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="yesColaApp.secteur.commune" for="field_commune">Commune</label>
+                    <select class="form-control" id="field_commune" multiple name="commune" [(ngModel)]="secteur.communes">
+                        <option [ngValue]="getSelected(secteur.communes, communeOption)" *ngFor="let communeOption of communes; trackBy: trackCommuneById">{{communeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

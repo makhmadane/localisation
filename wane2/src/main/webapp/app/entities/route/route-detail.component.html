@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="route">
+            <h2><span jhiTranslate="yesColaApp.route.detail.title">Route</span> {{route.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.route.numero">Numero</span></dt>
+                <dd>
+                    <span>{{route.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.journee">Journee</span></dt>
+                <dd>
+                    <span>{{route.journee}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{route.dateCreation}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.datedepCom">Datedep Com</span></dt>
+                <dd>
+                    <span>{{route.datedepCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.dateRCom">Date R Com</span></dt>
+                <dd>
+                    <span>{{route.dateRCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.heureDepCom">Heure Dep Com</span></dt>
+                <dd>
+                    <span>{{route.heureDepCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.heureFinCom">Heure Fin Com</span></dt>
+                <dd>
+                    <span>{{route.heureFinCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.heureDepLiv">Heure Dep Liv</span></dt>
+                <dd>
+                    <span>{{route.heureDepLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.heureFinLiv">Heure Fin Liv</span></dt>
+                <dd>
+                    <span>{{route.heureFinLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.journeeLiv">Journee Liv</span></dt>
+                <dd>
+                    <span>{{route.journeeLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.datedepLiv">Datedep Liv</span></dt>
+                <dd>
+                    <span>{{route.datedepLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.dateRLiv">Date R Liv</span></dt>
+                <dd>
+                    <span>{{route.dateRLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.etat">Etat</span></dt>
+                <dd>
+                    <span>{{route.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.moyenTransport">Moyen Transport</span></dt>
+                <dd>
+                    <div *ngIf="route.moyenTransport">
+                        <a [routerLink]="['/moyen-transport', route.moyenTransport?.id, 'view']">{{route.moyenTransport?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.commande">Commande</span></dt>
+                <dd>
+                    <div *ngIf="route.commande">
+                        <a [routerLink]="['/type-route', route.commande?.id, 'view']">{{route.commande?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.livraison">Livraison</span></dt>
+                <dd>
+                    <div *ngIf="route.livraison">
+                        <a [routerLink]="['/type-route', route.livraison?.id, 'view']">{{route.livraison?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.gerantCommande">Gerant Commande</span></dt>
+                <dd>
+                    {{route.gerantCommande?.id}}
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.prevendeur">Prevendeur</span></dt>
+                <dd>
+                    <div *ngIf="route.prevendeur">
+                        <a [routerLink]="['/employee', route.prevendeur?.id, 'view']">{{route.prevendeur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.gerantlivraison">Gerantlivraison</span></dt>
+                <dd>
+                    <div *ngIf="route.gerantlivraison">
+                        <a [routerLink]="['/employee', route.gerantlivraison?.id, 'view']">{{route.gerantlivraison?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.route.livreur">Livreur</span></dt>
+                <dd>
+                    <div *ngIf="route.livreur">
+                        <a [routerLink]="['/employee', route.livreur?.id, 'view']">{{route.livreur?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/route', route.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

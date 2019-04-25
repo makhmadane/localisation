@@ -1,0 +1,139 @@
+{
+    "name": "Route",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "journee",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "datedepCom",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateRCom",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "heureDepCom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heureFinCom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heureDepLiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heureFinLiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "journeeLiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "datedepLiv",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateRLiv",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detailRoute",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "detailRoute"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "moyenTransport",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "moyenTransport",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeRoute",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "commande",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeRoute",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "livraison",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "gerantCommande",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "prevendeur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "gerantlivraison",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "livreur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "secteur",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "secteur",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "route",
+            "relationshipName": "boutique",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190420135152",
+    "entityTableName": "route",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

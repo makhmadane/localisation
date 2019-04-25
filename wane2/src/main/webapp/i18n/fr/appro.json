@@ -1,0 +1,24 @@
+{
+    "yesColaApp": {
+        "appro": {
+            "home": {
+                "title": "Appros",
+                "createLabel": "Créer un nouveau Appro",
+                "createOrEditLabel": "Créer ou éditer un Appro",
+                "search": "Recherche pour Appro"
+            },
+            "created": "Un nouveau Appro a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Appro avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Appro avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Appro {{ id }} ?"
+            },
+            "detail": {
+                "title": "Appro"
+            },
+            "qteLiv": "Qte Liv",
+            "article": "Article",
+            "bonLivraison": "Bon Livraison"
+        }
+    }
+}

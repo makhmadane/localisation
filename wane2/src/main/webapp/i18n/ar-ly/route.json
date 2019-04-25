@@ -1,0 +1,44 @@
+{
+    "yesColaApp": {
+        "route": {
+            "home": {
+                "title": "Routes",
+                "createLabel": "Create a new Route",
+                "createOrEditLabel": "Create or edit a Route",
+                "search": "Search for Route"
+            },
+            "created": "A new Route is created with identifier {{ param }}",
+            "updated": "A Route is updated with identifier {{ param }}",
+            "deleted": "A Route is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Route {{ id }}?"
+            },
+            "detail": {
+                "title": "Route"
+            },
+            "numero": "Numero",
+            "journee": "Journee",
+            "dateCreation": "Date Creation",
+            "datedepCom": "Datedep Com",
+            "dateRCom": "Date R Com",
+            "heureDepCom": "Heure Dep Com",
+            "heureFinCom": "Heure Fin Com",
+            "heureDepLiv": "Heure Dep Liv",
+            "heureFinLiv": "Heure Fin Liv",
+            "journeeLiv": "Journee Liv",
+            "datedepLiv": "Datedep Liv",
+            "dateRLiv": "Date R Liv",
+            "etat": "Etat",
+            "detailRoute": "Detail Route",
+            "moyenTransport": "Moyen Transport",
+            "commande": "Commande",
+            "livraison": "Livraison",
+            "gerantCommande": "Gerant Commande",
+            "prevendeur": "Prevendeur",
+            "gerantlivraison": "Gerantlivraison",
+            "livreur": "Livreur",
+            "secteur": "Secteur",
+            "boutique": "Boutique"
+        }
+    }
+}

@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-boutique-heading" jhiTranslate="yesColaApp.boutique.home.createOrEditLabel">Create or edit a Boutique</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!boutique.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="boutique.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.nomBoutique" for="field_nomBoutique">Nom Boutique</label>
+                    <input type="text" class="form-control" name="nomBoutique" id="field_nomBoutique"
+                        [(ngModel)]="boutique.nomBoutique" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                        [(ngModel)]="boutique.prenom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.civilite" for="field_civilite">Civilite</label>
+                    <select class="form-control" name="civilite" [(ngModel)]="boutique.civilite" id="field_civilite" >
+                        <option value="M">{{'yesColaApp.Civilite.M' | translate}}</option>
+                        <option value="Mme">{{'yesColaApp.Civilite.Mme' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="boutique.nom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                        [(ngModel)]="boutique.telephone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.telproprietaire" for="field_telproprietaire">Telproprietaire</label>
+                    <input type="text" class="form-control" name="telproprietaire" id="field_telproprietaire"
+                        [(ngModel)]="boutique.telproprietaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.longitude" for="field_longitude">Longitude</label>
+                    <input type="text" class="form-control" name="longitude" id="field_longitude"
+                        [(ngModel)]="boutique.longitude" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.altitude" for="field_altitude">Altitude</label>
+                    <input type="text" class="form-control" name="altitude" id="field_altitude"
+                        [(ngModel)]="boutique.altitude" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="boutique.etat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.periodicite" for="field_periodicite">Periodicite</label>
+                    <input type="text" class="form-control" name="periodicite" id="field_periodicite"
+                        [(ngModel)]="boutique.periodicite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.dateDernierCom" for="field_dateDernierCom">Date Dernier Com</label>
+                    <input type="text" class="form-control" name="dateDernierCom" id="field_dateDernierCom"
+                        [(ngModel)]="boutique.dateDernierCom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.dateDernierLiv" for="field_dateDernierLiv">Date Dernier Liv</label>
+                    <input type="text" class="form-control" name="dateDernierLiv" id="field_dateDernierLiv"
+                        [(ngModel)]="boutique.dateDernierLiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.solde" for="field_solde">Solde</label>
+                    <input type="text" class="form-control" name="solde" id="field_solde"
+                        [(ngModel)]="boutique.solde" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.commandeEnCours" for="field_commandeEnCours">Commande En Cours</label>
+                    <input type="text" class="form-control" name="commandeEnCours" id="field_commandeEnCours"
+                        [(ngModel)]="boutique.commandeEnCours" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.metier" for="field_metier">Metier</label>
+                    <select class="form-control" id="field_metier" name="metier" [(ngModel)]="boutique.metier" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="metierOption.id === boutique.metier?.id ? boutique.metier : metierOption" *ngFor="let metierOption of metiers; trackBy: trackMetierById">{{metierOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.qualite" for="field_qualite">Qualite</label>
+                    <select class="form-control" id="field_qualite" name="qualite" [(ngModel)]="boutique.qualite" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="qualiteOption.id === boutique.qualite?.id ? boutique.qualite : qualiteOption" *ngFor="let qualiteOption of qualites; trackBy: trackQualiteById">{{qualiteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.secteur" for="field_secteur">Secteur</label>
+                    <select class="form-control" id="field_secteur" name="secteur" [(ngModel)]="boutique.secteur" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="secteurOption.id === boutique.secteur?.id ? boutique.secteur : secteurOption" *ngFor="let secteurOption of secteurs; trackBy: trackSecteurById">{{secteurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="yesColaApp.boutique.route" for="field_route">Route</label>
+                    <select class="form-control" id="field_route" multiple name="route" [(ngModel)]="boutique.routes">
+                        <option [ngValue]="getSelected(boutique.routes, routeOption)" *ngFor="let routeOption of routes; trackBy: trackRouteById">{{routeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.boutique.prospection" for="field_prospection">Prospection</label>
+                    <select class="form-control" id="field_prospection" name="prospection" [(ngModel)]="boutique.prospection" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="prospectionOption.id === boutique.prospection?.id ? boutique.prospection : prospectionOption" *ngFor="let prospectionOption of prospections; trackBy: trackProspectionById">{{prospectionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

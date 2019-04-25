@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="secteur">
+            <h2><span jhiTranslate="yesColaApp.secteur.detail.title">Secteur</span> {{secteur.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.secteur.nomSecteur">Nom Secteur</span></dt>
+                <dd>
+                    <span>{{secteur.nomSecteur}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.secteur.longitutde">Longitutde</span></dt>
+                <dd>
+                    <span>{{secteur.longitutde}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.secteur.altitude">Altitude</span></dt>
+                <dd>
+                    <span>{{secteur.altitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.secteur.etat">Etat</span></dt>
+                <dd>
+                    <span>{{secteur.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.secteur.route">Route</span></dt>
+                <dd>
+                    <span *ngFor="let route of secteur.routes; let last = last">
+                        <a [routerLink]="['/route', route?.id, 'view' ]">{{route.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.secteur.commune">Commune</span></dt>
+                <dd>
+                    <span *ngFor="let commune of secteur.communes; let last = last">
+                        <a [routerLink]="['/commune', commune?.id, 'view' ]">{{commune.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/secteur', secteur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="article">
+            <h2><span jhiTranslate="yesColaApp.article.detail.title">Article</span> {{article.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.article.nomarticle">Nomarticle</span></dt>
+                <dd>
+                    <span>{{article.nomarticle}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.numeroarticle">Numeroarticle</span></dt>
+                <dd>
+                    <span>{{article.numeroarticle}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.qteStock">Qte Stock</span></dt>
+                <dd>
+                    <span>{{article.qteStock}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.qteSeuil">Qte Seuil</span></dt>
+                <dd>
+                    <span>{{article.qteSeuil}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.pack">Pack</span></dt>
+                <dd>
+                    <span>{{article.pack}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.etat">Etat</span></dt>
+                <dd>
+                    <span>{{article.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.prix">Prix</span></dt>
+                <dd>
+                    <span>{{article.prix}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.parfum">Parfum</span></dt>
+                <dd>
+                    <div *ngIf="article.parfum">
+                        <a [routerLink]="['/parfum', article.parfum?.id, 'view']">{{article.parfum?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.article.depot">Depot</span></dt>
+                <dd>
+                    <div *ngIf="article.depot">
+                        <a [routerLink]="['/depot', article.depot?.id, 'view']">{{article.depot?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/article', article.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

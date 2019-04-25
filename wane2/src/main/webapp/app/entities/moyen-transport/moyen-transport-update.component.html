@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-moyen-transport-heading" jhiTranslate="yesColaApp.moyenTransport.home.createOrEditLabel">Create or edit a Moyen Transport</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!moyenTransport.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="moyenTransport.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.moyenTransport.matricule" for="field_matricule">Matricule</label>
+                    <input type="text" class="form-control" name="matricule" id="field_matricule"
+                        [(ngModel)]="moyenTransport.matricule" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.moyenTransport.dateList" for="field_dateList">Date List</label>
+                    <div class="input-group">
+                        <input id="field_dateList" type="text" class="form-control" name="dateList" ngbDatepicker  #dateListDp="ngbDatepicker" [(ngModel)]="moyenTransport.dateList"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateListDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.moyenTransport.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="moyenTransport.etat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.moyenTransport.vitesse" for="field_vitesse">Vitesse</label>
+                    <input type="text" class="form-control" name="vitesse" id="field_vitesse"
+                        [(ngModel)]="moyenTransport.vitesse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.moyenTransport.capacite" for="field_capacite">Capacite</label>
+                    <input type="text" class="form-control" name="capacite" id="field_capacite"
+                        [(ngModel)]="moyenTransport.capacite" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.moyenTransport.typeTransport" for="field_typeTransport">Type Transport</label>
+                    <select class="form-control" id="field_typeTransport" name="typeTransport" [(ngModel)]="moyenTransport.typeTransport" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeTransportOption.id === moyenTransport.typeTransport?.id ? moyenTransport.typeTransport : typeTransportOption" *ngFor="let typeTransportOption of typetransports; trackBy: trackTypeTransportById">{{typeTransportOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

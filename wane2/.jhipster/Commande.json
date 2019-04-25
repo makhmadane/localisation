@@ -1,0 +1,98 @@
+{
+    "name": "Commande",
+    "fields": [
+        {
+            "fieldName": "numCom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCom",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montantLiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montantRest",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "boutique",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "detailRoute",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "detailRoute",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detailCom",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "detailCom"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "prospection",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "prospection"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "reglement"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "secteur",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "secteur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "livreur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "prevendeur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "prospection",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "prospection",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190420135145",
+    "entityTableName": "commande",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

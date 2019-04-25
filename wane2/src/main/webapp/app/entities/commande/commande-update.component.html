@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-commande-heading" jhiTranslate="yesColaApp.commande.home.createOrEditLabel">Create or edit a Commande</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!commande.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="commande.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.numCom" for="field_numCom">Num Com</label>
+                    <input type="text" class="form-control" name="numCom" id="field_numCom"
+                        [(ngModel)]="commande.numCom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.dateCom" for="field_dateCom">Date Com</label>
+                    <div class="input-group">
+                        <input id="field_dateCom" type="text" class="form-control" name="dateCom" ngbDatepicker  #dateComDp="ngbDatepicker" [(ngModel)]="commande.dateCom"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateComDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="commande.etat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.montantLiv" for="field_montantLiv">Montant Liv</label>
+                    <input type="text" class="form-control" name="montantLiv" id="field_montantLiv"
+                        [(ngModel)]="commande.montantLiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.montantRest" for="field_montantRest">Montant Rest</label>
+                    <input type="text" class="form-control" name="montantRest" id="field_montantRest"
+                        [(ngModel)]="commande.montantRest" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.boutique" for="field_boutique">Boutique</label>
+                    <select class="form-control" id="field_boutique" name="boutique" [(ngModel)]="commande.boutique">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="boutiqueOption.id === commande.boutique?.id ? commande.boutique : boutiqueOption" *ngFor="let boutiqueOption of boutiques; trackBy: trackBoutiqueById">{{boutiqueOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.detailRoute" for="field_detailRoute">Detail Route</label>
+                    <select class="form-control" id="field_detailRoute" name="detailRoute" [(ngModel)]="commande.detailRoute">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="detailRouteOption.id === commande.detailRoute?.id ? commande.detailRoute : detailRouteOption" *ngFor="let detailRouteOption of detailroutes; trackBy: trackDetailRouteById">{{detailRouteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.secteur" for="field_secteur">Secteur</label>
+                    <select class="form-control" id="field_secteur" name="secteur" [(ngModel)]="commande.secteur" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="secteurOption.id === commande.secteur?.id ? commande.secteur : secteurOption" *ngFor="let secteurOption of secteurs; trackBy: trackSecteurById">{{secteurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.livreur" for="field_livreur">Livreur</label>
+                    <select class="form-control" id="field_livreur" name="livreur" [(ngModel)]="commande.livreur" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === commande.livreur?.id ? commande.livreur : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.prevendeur" for="field_prevendeur">Prevendeur</label>
+                    <select class="form-control" id="field_prevendeur" name="prevendeur" [(ngModel)]="commande.prevendeur" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === commande.prevendeur?.id ? commande.prevendeur : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.commande.prospection" for="field_prospection">Prospection</label>
+                    <select class="form-control" id="field_prospection" name="prospection" [(ngModel)]="commande.prospection" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="prospectionOption.id === commande.prospection?.id ? commande.prospection : prospectionOption" *ngFor="let prospectionOption of prospections; trackBy: trackProspectionById">{{prospectionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

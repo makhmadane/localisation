@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stockInitial">
+            <h2><span jhiTranslate="yesColaApp.stockInitial.detail.title">Stock Initial</span> {{stockInitial.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.stockInitial.qteStockInit">Qte Stock Init</span></dt>
+                <dd>
+                    <span>{{stockInitial.qteStockInit}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.stockInitial.qteStockEncours">Qte Stock Encours</span></dt>
+                <dd>
+                    <span>{{stockInitial.qteStockEncours}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.stockInitial.boutique">Boutique</span></dt>
+                <dd>
+                    <div *ngIf="stockInitial.boutique">
+                        <a [routerLink]="['/boutique', stockInitial.boutique?.id, 'view']">{{stockInitial.boutique?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.stockInitial.article">Article</span></dt>
+                <dd>
+                    <div *ngIf="stockInitial.article">
+                        <a [routerLink]="['/article', stockInitial.article?.id, 'view']">{{stockInitial.article?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-initial', stockInitial.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

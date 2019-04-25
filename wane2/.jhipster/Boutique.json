@@ -1,0 +1,128 @@
+{
+    "name": "Boutique",
+    "fields": [
+        {
+            "fieldName": "nomBoutique",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "civilite",
+            "fieldType": "Civilite",
+            "fieldValues": "M,Mme"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telproprietaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "altitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "periodicite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDernierCom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDernierLiv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "solde",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commandeEnCours",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "stockInitial",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "stockInitial"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detailRoute",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "detailRoute"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "metier",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "metier",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qualite",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "qualite",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "secteur",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "secteur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "route",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "route",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "commande",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "prospection",
+            "otherEntityRelationshipName": "boutique",
+            "relationshipName": "prospection",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190420135141",
+    "entityTableName": "boutique",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

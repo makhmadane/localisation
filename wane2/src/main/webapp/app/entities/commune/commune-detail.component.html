@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commune">
+            <h2><span jhiTranslate="yesColaApp.commune.detail.title">Commune</span> {{commune.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.commune.nomCom">Nom Com</span></dt>
+                <dd>
+                    <span>{{commune.nomCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commune.longitutde">Longitutde</span></dt>
+                <dd>
+                    <span>{{commune.longitutde}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commune.altitude">Altitude</span></dt>
+                <dd>
+                    <span>{{commune.altitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.commune.etat">Etat</span></dt>
+                <dd>
+                    <span>{{commune.etat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commune', commune.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

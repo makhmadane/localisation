@@ -1,0 +1,26 @@
+{
+    "yesColaApp": {
+        "tablette": {
+            "home": {
+                "title": "Tablettes",
+                "createLabel": "Créer un nouveau Tablette",
+                "createOrEditLabel": "Créer ou éditer un Tablette",
+                "search": "Recherche pour Tablette"
+            },
+            "created": "Un nouveau Tablette a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Tablette avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Tablette avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Tablette {{ id }} ?"
+            },
+            "detail": {
+                "title": "Tablette"
+            },
+            "numero": "Numero",
+            "dateServ": "Date Serv",
+            "etat": "Etat",
+            "numeropuce": "Numeropuce",
+            "employee": "Employee"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "name": "Article",
+    "fields": [
+        {
+            "fieldName": "nomarticle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroarticle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qteStock",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qteSeuil",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pack",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prix",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "stockInitial",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "stockInitial"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detailCom",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "detailCom"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "appro",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "appro"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "parfum",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "parfum",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "depot",
+            "otherEntityRelationshipName": "article",
+            "relationshipName": "depot",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190420135148",
+    "entityTableName": "article",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-detail-route-heading" jhiTranslate="yesColaApp.detailRoute.home.createOrEditLabel">Create or edit a Detail Route</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!detailRoute.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="detailRoute.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.heureACom" for="field_heureACom">Heure A Com</label>
+                    <input type="text" class="form-control" name="heureACom" id="field_heureACom"
+                        [(ngModel)]="detailRoute.heureACom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.heureFCom" for="field_heureFCom">Heure F Com</label>
+                    <input type="text" class="form-control" name="heureFCom" id="field_heureFCom"
+                        [(ngModel)]="detailRoute.heureFCom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.heureALiv" for="field_heureALiv">Heure A Liv</label>
+                    <input type="text" class="form-control" name="heureALiv" id="field_heureALiv"
+                        [(ngModel)]="detailRoute.heureALiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.heureFLiv" for="field_heureFLiv">Heure F Liv</label>
+                    <input type="text" class="form-control" name="heureFLiv" id="field_heureFLiv"
+                        [(ngModel)]="detailRoute.heureFLiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.distanceDepot" for="field_distanceDepot">Distance Depot</label>
+                    <input type="text" class="form-control" name="distanceDepot" id="field_distanceDepot"
+                        [(ngModel)]="detailRoute.distanceDepot" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.route" for="field_route">Route</label>
+                    <select class="form-control" id="field_route" name="route" [(ngModel)]="detailRoute.route" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="routeOption.id === detailRoute.route?.id ? detailRoute.route : routeOption" *ngFor="let routeOption of routes; trackBy: trackRouteById">{{routeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.detailRoute.boutique" for="field_boutique">Boutique</label>
+                    <select class="form-control" id="field_boutique" name="boutique" [(ngModel)]="detailRoute.boutique" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="boutiqueOption.id === detailRoute.boutique?.id ? detailRoute.boutique : boutiqueOption" *ngFor="let boutiqueOption of boutiques; trackBy: trackBoutiqueById">{{boutiqueOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

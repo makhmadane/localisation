@@ -1,0 +1,35 @@
+{
+    "yesColaApp": {
+        "prospection": {
+            "home": {
+                "title": "Prospections",
+                "createLabel": "Créer un nouveau Prospection",
+                "createOrEditLabel": "Créer ou éditer un Prospection",
+                "search": "Recherche pour Prospection"
+            },
+            "created": "Un nouveau Prospection a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Prospection avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Prospection avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Prospection {{ id }} ?"
+            },
+            "detail": {
+                "title": "Prospection"
+            },
+            "datedepart": "Datedepart",
+            "datecreation": "Datecreation",
+            "heuredepart": "Heuredepart",
+            "heurearrive": "Heurearrive",
+            "journee": "Journee",
+            "nbreatteint": "Nbreatteint",
+            "nbrprevue": "Nbrprevue",
+            "etat": "Etat",
+            "boutique": "Boutique",
+            "prevendeur": "Prevendeur",
+            "gerant": "Gerant",
+            "moyenTransport": "Moyen Transport",
+            "commande": "Commande",
+            "commande": "Commande"
+        }
+    }
+}

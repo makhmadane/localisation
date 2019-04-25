@@ -1,0 +1,23 @@
+{
+    "yesColaApp": {
+        "typeTransport": {
+            "home": {
+                "title": "TypeTransports",
+                "createLabel": "Créer un nouveau Type Transport",
+                "createOrEditLabel": "Créer ou éditer un Type Transport",
+                "search": "Recherche pour Type Transport"
+            },
+            "created": "Un nouveau Type Transport a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Transport avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Transport avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Transport {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Transport"
+            },
+            "libelle": "Libelle",
+            "moyenTransport": "Moyen Transport"
+        }
+    }
+}

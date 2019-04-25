@@ -1,0 +1,34 @@
+{
+    "name": "Parfum",
+    "fields": [
+        {
+            "fieldName": "numeroparf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "article",
+            "otherEntityRelationshipName": "parfum",
+            "relationshipName": "article"
+        }
+    ],
+    "changelogDate": "20190420135149",
+    "entityTableName": "parfum",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

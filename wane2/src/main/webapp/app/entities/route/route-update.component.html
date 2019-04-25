@@ -1,0 +1,163 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-route-heading" jhiTranslate="yesColaApp.route.home.createOrEditLabel">Create or edit a Route</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!route.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="route.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                        [(ngModel)]="route.numero" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.journee" for="field_journee">Journee</label>
+                    <input type="text" class="form-control" name="journee" id="field_journee"
+                        [(ngModel)]="route.journee" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.dateCreation" for="field_dateCreation">Date Creation</label>
+                    <div class="input-group">
+                        <input id="field_dateCreation" type="text" class="form-control" name="dateCreation" ngbDatepicker  #dateCreationDp="ngbDatepicker" [(ngModel)]="route.dateCreation"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreationDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.datedepCom" for="field_datedepCom">Datedep Com</label>
+                    <div class="input-group">
+                        <input id="field_datedepCom" type="text" class="form-control" name="datedepCom" ngbDatepicker  #datedepComDp="ngbDatepicker" [(ngModel)]="route.datedepCom"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datedepComDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.dateRCom" for="field_dateRCom">Date R Com</label>
+                    <div class="input-group">
+                        <input id="field_dateRCom" type="text" class="form-control" name="dateRCom" ngbDatepicker  #dateRComDp="ngbDatepicker" [(ngModel)]="route.dateRCom"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRComDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.heureDepCom" for="field_heureDepCom">Heure Dep Com</label>
+                    <input type="text" class="form-control" name="heureDepCom" id="field_heureDepCom"
+                        [(ngModel)]="route.heureDepCom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.heureFinCom" for="field_heureFinCom">Heure Fin Com</label>
+                    <input type="text" class="form-control" name="heureFinCom" id="field_heureFinCom"
+                        [(ngModel)]="route.heureFinCom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.heureDepLiv" for="field_heureDepLiv">Heure Dep Liv</label>
+                    <input type="text" class="form-control" name="heureDepLiv" id="field_heureDepLiv"
+                        [(ngModel)]="route.heureDepLiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.heureFinLiv" for="field_heureFinLiv">Heure Fin Liv</label>
+                    <input type="text" class="form-control" name="heureFinLiv" id="field_heureFinLiv"
+                        [(ngModel)]="route.heureFinLiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.journeeLiv" for="field_journeeLiv">Journee Liv</label>
+                    <input type="text" class="form-control" name="journeeLiv" id="field_journeeLiv"
+                        [(ngModel)]="route.journeeLiv" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.datedepLiv" for="field_datedepLiv">Datedep Liv</label>
+                    <div class="input-group">
+                        <input id="field_datedepLiv" type="text" class="form-control" name="datedepLiv" ngbDatepicker  #datedepLivDp="ngbDatepicker" [(ngModel)]="route.datedepLiv"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datedepLivDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.dateRLiv" for="field_dateRLiv">Date R Liv</label>
+                    <div class="input-group">
+                        <input id="field_dateRLiv" type="text" class="form-control" name="dateRLiv" ngbDatepicker  #dateRLivDp="ngbDatepicker" [(ngModel)]="route.dateRLiv"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRLivDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="route.etat" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.moyenTransport" for="field_moyenTransport">Moyen Transport</label>
+                    <select class="form-control" id="field_moyenTransport" name="moyenTransport" [(ngModel)]="route.moyenTransport" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="moyenTransportOption.id === route.moyenTransport?.id ? route.moyenTransport : moyenTransportOption" *ngFor="let moyenTransportOption of moyentransports; trackBy: trackMoyenTransportById">{{moyenTransportOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.commande" for="field_commande">Commande</label>
+                    <select class="form-control" id="field_commande" name="commande" [(ngModel)]="route.commande" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeRouteOption.id === route.commande?.id ? route.commande : typeRouteOption" *ngFor="let typeRouteOption of typeroutes; trackBy: trackTypeRouteById">{{typeRouteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.livraison" for="field_livraison">Livraison</label>
+                    <select class="form-control" id="field_livraison" name="livraison" [(ngModel)]="route.livraison" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeRouteOption.id === route.livraison?.id ? route.livraison : typeRouteOption" *ngFor="let typeRouteOption of typeroutes; trackBy: trackTypeRouteById">{{typeRouteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.gerantCommande" for="field_gerantCommande">Gerant Commande</label>
+                    <select class="form-control" id="field_gerantCommande" name="gerantCommande" [(ngModel)]="route.gerantCommande" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === route.gerantCommande?.id ? route.gerantCommande : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.prevendeur" for="field_prevendeur">Prevendeur</label>
+                    <select class="form-control" id="field_prevendeur" name="prevendeur" [(ngModel)]="route.prevendeur" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === route.prevendeur?.id ? route.prevendeur : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.gerantlivraison" for="field_gerantlivraison">Gerantlivraison</label>
+                    <select class="form-control" id="field_gerantlivraison" name="gerantlivraison" [(ngModel)]="route.gerantlivraison" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === route.gerantlivraison?.id ? route.gerantlivraison : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.route.livreur" for="field_livreur">Livreur</label>
+                    <select class="form-control" id="field_livreur" name="livreur" [(ngModel)]="route.livreur" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === route.livreur?.id ? route.livreur : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

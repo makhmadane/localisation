@@ -1,0 +1,29 @@
+{
+    "yesColaApp": {
+        "secteur": {
+            "home": {
+                "title": "Secteurs",
+                "createLabel": "Créer un nouveau Secteur",
+                "createOrEditLabel": "Créer ou éditer un Secteur",
+                "search": "Recherche pour Secteur"
+            },
+            "created": "Un nouveau Secteur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Secteur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Secteur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Secteur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Secteur"
+            },
+            "nomSecteur": "Nom Secteur",
+            "longitutde": "Longitutde",
+            "altitude": "Altitude",
+            "etat": "Etat",
+            "route": "Route",
+            "commune": "Commune",
+            "boutique": "Boutique",
+            "commande": "Commande"
+        }
+    }
+}

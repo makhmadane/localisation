@@ -1,0 +1,222 @@
+
+
+
+entity Employee{
+nomcomplet String
+etat String
+telephone String
+adresse String
+
+}
+entity Prospection{
+datedepart LocalDate
+datecreation LocalDate
+heuredepart String
+heurearrive String
+journee String
+nbreatteint String
+nbrprevue	String
+etat String
+}
+
+entity Metier{
+libelle String
+etatmetier String
+}
+entity Boutique{
+nomBoutique String
+prenom String
+civilite Civilite
+nom String
+telephone String
+telproprietaire String
+longitude String
+altitude String
+etat String
+periodicite String
+dateDernierCom String
+dateDernierLiv String
+solde String
+commandeEnCours String
+
+}
+entity Qualite{
+libelle String
+etat String
+}
+
+entity Secteur{
+nomSecteur	String
+longitutde String
+altitude	String
+etat String
+}
+entity Commune{
+nomCom	String
+longitutde String
+altitude String
+etat  String
+}
+entity Commande{
+numCom	String
+dateCom LocalDate
+etat String
+montantLiv String
+montantRest String
+}
+entity DetailCom{
+qteCom String
+qteLiv String
+}
+entity StockInitial{
+qteStockInit String
+qteStockEncours String
+}
+entity Article{
+nomarticle String
+numeroarticle String
+qteStock String
+qteSeuil String
+pack String
+etat String
+prix String
+}
+entity Parfum{
+numeroparf String
+libelle String
+etat String
+}
+entity Tablette{
+numero String
+dateServ LocalDate
+etat String
+numeropuce String
+}
+entity Depot{
+adresse String
+telephone String
+email String
+longitude String
+altitude String
+etat String
+}
+entity Route{
+numero String
+journee String
+dateCreation LocalDate
+datedepCom LocalDate
+dateRCom LocalDate
+heureDepCom String
+heureFinCom String
+heureDepLiv String
+heureFinLiv String
+journeeLiv String
+datedepLiv LocalDate
+dateRLiv LocalDate
+etat String
+}
+entity TypeRoute{
+libelle String
+etat String
+}
+entity DetailRoute{
+heureACom String
+heureFCom String
+heureALiv String
+heureFLiv String
+distanceDepot String
+}
+entity Reglement{
+dateReg LocalDate
+montantPayer String
+}
+entity TypeRglment{
+libelle String
+etat String
+}
+entity MoyenTransport{
+matricule String
+dateList LocalDate
+etat String
+vitesse String
+capacite String
+
+}
+entity TypeTransport{
+libelle String
+}
+entity BonLivraison{
+dateBl LocalDate
+}
+entity Appro{
+qteLiv String
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+enum Civilite{
+M, Mme
+}
+relationship ManyToOne {
+   	Boutique to Metier
+	Prospection{prevendeur} to Employee
+	Prospection{gerant} to Employee
+     Boutique to Qualite
+    Boutique to Secteur
+    Article to Parfum
+    Article to Depot
+    MoyenTransport to TypeTransport
+    Route to MoyenTransport
+    Route{commande} to TypeRoute
+    Route{livraison} to TypeRoute
+    Route{gerantCommande} to User 
+    Route{prevendeur} to Employee
+    Route{gerantlivraison}to Employee
+    Route{livreur} to Employee
+    Commande to Secteur
+    Commande{livreur} to Employee
+    Commande{prevendeur} to Employee
+    Reglement to TypeRglment
+    Prospection to MoyenTransport
+    Commande to Prospection
+   
+
+}
+relationship OneToOne {
+	Commande to Boutique
+    Employee to Tablette
+    Commande to DetailRoute
+    Employee to User
+}
+relationship OneToMany {
+	Boutique to StockInitial 
+    Article to StockInitial
+    Article to DetailCom
+    Commande  to DetailCom
+	Prospection to Boutique
+    Commande to Prospection
+   	Route to DetailRoute
+    Boutique to DetailRoute
+    Commande to Reglement
+    Article to Appro
+    BonLivraison to Appro
+}
+relationship ManyToMany {
+	Secteur to Route
+    Boutique to Route
+     Secteur to Commune
+}
+
+
+
+
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

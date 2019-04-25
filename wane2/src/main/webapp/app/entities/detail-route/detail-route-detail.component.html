@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="detailRoute">
+            <h2><span jhiTranslate="yesColaApp.detailRoute.detail.title">Detail Route</span> {{detailRoute.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.detailRoute.heureACom">Heure A Com</span></dt>
+                <dd>
+                    <span>{{detailRoute.heureACom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.detailRoute.heureFCom">Heure F Com</span></dt>
+                <dd>
+                    <span>{{detailRoute.heureFCom}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.detailRoute.heureALiv">Heure A Liv</span></dt>
+                <dd>
+                    <span>{{detailRoute.heureALiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.detailRoute.heureFLiv">Heure F Liv</span></dt>
+                <dd>
+                    <span>{{detailRoute.heureFLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.detailRoute.distanceDepot">Distance Depot</span></dt>
+                <dd>
+                    <span>{{detailRoute.distanceDepot}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.detailRoute.route">Route</span></dt>
+                <dd>
+                    <div *ngIf="detailRoute.route">
+                        <a [routerLink]="['/route', detailRoute.route?.id, 'view']">{{detailRoute.route?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.detailRoute.boutique">Boutique</span></dt>
+                <dd>
+                    <div *ngIf="detailRoute.boutique">
+                        <a [routerLink]="['/boutique', detailRoute.boutique?.id, 'view']">{{detailRoute.boutique?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/detail-route', detailRoute.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

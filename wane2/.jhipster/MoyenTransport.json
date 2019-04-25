@@ -1,0 +1,55 @@
+{
+    "name": "MoyenTransport",
+    "fields": [
+        {
+            "fieldName": "matricule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateList",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vitesse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "capacite",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeTransport",
+            "otherEntityRelationshipName": "moyenTransport",
+            "relationshipName": "typeTransport",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "route",
+            "otherEntityRelationshipName": "moyenTransport",
+            "relationshipName": "route"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "prospection",
+            "otherEntityRelationshipName": "moyenTransport",
+            "relationshipName": "prospection"
+        }
+    ],
+    "changelogDate": "20190420135157",
+    "entityTableName": "moyen_transport",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

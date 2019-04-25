@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.yescola.livraison",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "monolith",
+    "baseName": "YesCola",
+    "packageName": "org.yescola.livraison",
+    "packageFolder": "org/yescola/livraison",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YWE1OWZmZDIwNzU2NDZkNzJiYWEyYmIxYTBjMzg1YzMwMWFjYTgxNzY3NjZmNWY1NDg4OTRiNGM3M2Q0Y2Y3ZTY0YTg4ZWZjZDJlNWM3Y2M5OWZhM2VhODFiYjU3M2JmNDRiOGRjY2NmZTZmMjIzMmE2NGJlYzdmODViZDMxNmY=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr",
+      "ar-ly"
+    ]
+  }
+}

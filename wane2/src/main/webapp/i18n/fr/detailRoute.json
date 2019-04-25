@@ -1,0 +1,29 @@
+{
+    "yesColaApp": {
+        "detailRoute": {
+            "home": {
+                "title": "DetailRoutes",
+                "createLabel": "Créer un nouveau Detail Route",
+                "createOrEditLabel": "Créer ou éditer un Detail Route",
+                "search": "Recherche pour Detail Route"
+            },
+            "created": "Un nouveau Detail Route a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Detail Route avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Detail Route avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Detail Route {{ id }} ?"
+            },
+            "detail": {
+                "title": "Detail Route"
+            },
+            "heureACom": "Heure A Com",
+            "heureFCom": "Heure F Com",
+            "heureALiv": "Heure A Liv",
+            "heureFLiv": "Heure F Liv",
+            "distanceDepot": "Distance Depot",
+            "commande": "Commande",
+            "route": "Route",
+            "boutique": "Boutique"
+        }
+    }
+}

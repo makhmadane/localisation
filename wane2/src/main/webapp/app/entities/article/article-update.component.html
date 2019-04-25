@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-article-heading" jhiTranslate="yesColaApp.article.home.createOrEditLabel">Create or edit a Article</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!article.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="article.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.nomarticle" for="field_nomarticle">Nomarticle</label>
+                    <input type="text" class="form-control" name="nomarticle" id="field_nomarticle"
+                        [(ngModel)]="article.nomarticle" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.numeroarticle" for="field_numeroarticle">Numeroarticle</label>
+                    <input type="text" class="form-control" name="numeroarticle" id="field_numeroarticle"
+                        [(ngModel)]="article.numeroarticle" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.qteStock" for="field_qteStock">Qte Stock</label>
+                    <input type="text" class="form-control" name="qteStock" id="field_qteStock"
+                        [(ngModel)]="article.qteStock" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.qteSeuil" for="field_qteSeuil">Qte Seuil</label>
+                    <input type="text" class="form-control" name="qteSeuil" id="field_qteSeuil"
+                        [(ngModel)]="article.qteSeuil" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.pack" for="field_pack">Pack</label>
+                    <input type="text" class="form-control" name="pack" id="field_pack"
+                        [(ngModel)]="article.pack" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="article.etat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.prix" for="field_prix">Prix</label>
+                    <input type="text" class="form-control" name="prix" id="field_prix"
+                        [(ngModel)]="article.prix" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.parfum" for="field_parfum">Parfum</label>
+                    <select class="form-control" id="field_parfum" name="parfum" [(ngModel)]="article.parfum" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="parfumOption.id === article.parfum?.id ? article.parfum : parfumOption" *ngFor="let parfumOption of parfums; trackBy: trackParfumById">{{parfumOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.article.depot" for="field_depot">Depot</label>
+                    <select class="form-control" id="field_depot" name="depot" [(ngModel)]="article.depot" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="depotOption.id === article.depot?.id ? article.depot : depotOption" *ngFor="let depotOption of depots; trackBy: trackDepotById">{{depotOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

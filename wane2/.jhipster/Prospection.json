@@ -1,0 +1,88 @@
+{
+    "name": "Prospection",
+    "fields": [
+        {
+            "fieldName": "datedepart",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "datecreation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "heuredepart",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heurearrive",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "journee",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nbreatteint",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nbrprevue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "prospection",
+            "relationshipName": "boutique"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "prospection",
+            "relationshipName": "prevendeur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "prospection",
+            "relationshipName": "gerant",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "moyenTransport",
+            "otherEntityRelationshipName": "prospection",
+            "relationshipName": "moyenTransport",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "prospection",
+            "relationshipName": "commande",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "prospection",
+            "relationshipName": "commande"
+        }
+    ],
+    "changelogDate": "20190420135139",
+    "entityTableName": "prospection",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

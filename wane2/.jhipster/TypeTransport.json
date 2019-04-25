@@ -1,0 +1,26 @@
+{
+    "name": "TypeTransport",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "moyenTransport",
+            "otherEntityRelationshipName": "typeTransport",
+            "relationshipName": "moyenTransport"
+        }
+    ],
+    "changelogDate": "20190420135158",
+    "entityTableName": "type_transport",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

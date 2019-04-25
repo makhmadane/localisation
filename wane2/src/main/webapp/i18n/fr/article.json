@@ -1,0 +1,33 @@
+{
+    "yesColaApp": {
+        "article": {
+            "home": {
+                "title": "Articles",
+                "createLabel": "Créer un nouveau Article",
+                "createOrEditLabel": "Créer ou éditer un Article",
+                "search": "Recherche pour Article"
+            },
+            "created": "Un nouveau Article a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Article avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Article avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Article {{ id }} ?"
+            },
+            "detail": {
+                "title": "Article"
+            },
+            "nomarticle": "Nomarticle",
+            "numeroarticle": "Numeroarticle",
+            "qteStock": "Qte Stock",
+            "qteSeuil": "Qte Seuil",
+            "pack": "Pack",
+            "etat": "Etat",
+            "prix": "Prix",
+            "stockInitial": "Stock Initial",
+            "detailCom": "Detail Com",
+            "appro": "Appro",
+            "parfum": "Parfum",
+            "depot": "Depot"
+        }
+    }
+}

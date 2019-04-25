@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Commande.
+    -->
+    <changeSet id="20190420135145-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="boutique_id"
+                                 baseTableName="commande"
+                                 constraintName="fk_commande_boutique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="boutique"/>
+
+        <addForeignKeyConstraint baseColumnNames="detail_route_id"
+                                 baseTableName="commande"
+                                 constraintName="fk_commande_detail_route_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="detail_route"/>
+
+        <addForeignKeyConstraint baseColumnNames="secteur_id"
+                                 baseTableName="commande"
+                                 constraintName="fk_commande_secteur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="secteur"/>
+
+        <addForeignKeyConstraint baseColumnNames="livreur_id"
+                                 baseTableName="commande"
+                                 constraintName="fk_commande_livreur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id"
+                                 baseTableName="commande"
+                                 constraintName="fk_commande_prevendeur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="prospection_id"
+                                 baseTableName="commande"
+                                 constraintName="fk_commande_prospection_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prospection"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+{
+    "yesColaApp": {
+        "commande": {
+            "home": {
+                "title": "Commandes",
+                "createLabel": "Create a new Commande",
+                "createOrEditLabel": "Create or edit a Commande",
+                "search": "Search for Commande"
+            },
+            "created": "A new Commande is created with identifier {{ param }}",
+            "updated": "A Commande is updated with identifier {{ param }}",
+            "deleted": "A Commande is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Commande {{ id }}?"
+            },
+            "detail": {
+                "title": "Commande"
+            },
+            "numCom": "Num Com",
+            "dateCom": "Date Com",
+            "etat": "Etat",
+            "montantLiv": "Montant Liv",
+            "montantRest": "Montant Rest",
+            "boutique": "Boutique",
+            "detailRoute": "Detail Route",
+            "detailCom": "Detail Com",
+            "prospection": "Prospection",
+            "reglement": "Reglement",
+            "secteur": "Secteur",
+            "livreur": "Livreur",
+            "prevendeur": "Prevendeur",
+            "prospection": "Prospection"
+        }
+    }
+}

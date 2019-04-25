@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prospection">
+            <h2><span jhiTranslate="yesColaApp.prospection.detail.title">Prospection</span> {{prospection.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.prospection.datedepart">Datedepart</span></dt>
+                <dd>
+                    <span>{{prospection.datedepart}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.datecreation">Datecreation</span></dt>
+                <dd>
+                    <span>{{prospection.datecreation}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.heuredepart">Heuredepart</span></dt>
+                <dd>
+                    <span>{{prospection.heuredepart}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.heurearrive">Heurearrive</span></dt>
+                <dd>
+                    <span>{{prospection.heurearrive}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.journee">Journee</span></dt>
+                <dd>
+                    <span>{{prospection.journee}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.nbreatteint">Nbreatteint</span></dt>
+                <dd>
+                    <span>{{prospection.nbreatteint}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.nbrprevue">Nbrprevue</span></dt>
+                <dd>
+                    <span>{{prospection.nbrprevue}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.etat">Etat</span></dt>
+                <dd>
+                    <span>{{prospection.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.prevendeur">Prevendeur</span></dt>
+                <dd>
+                    <div *ngIf="prospection.prevendeur">
+                        <a [routerLink]="['/employee', prospection.prevendeur?.id, 'view']">{{prospection.prevendeur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.gerant">Gerant</span></dt>
+                <dd>
+                    <div *ngIf="prospection.gerant">
+                        <a [routerLink]="['/employee', prospection.gerant?.id, 'view']">{{prospection.gerant?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.moyenTransport">Moyen Transport</span></dt>
+                <dd>
+                    <div *ngIf="prospection.moyenTransport">
+                        <a [routerLink]="['/moyen-transport', prospection.moyenTransport?.id, 'view']">{{prospection.moyenTransport?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.prospection.commande">Commande</span></dt>
+                <dd>
+                    <div *ngIf="prospection.commande">
+                        <a [routerLink]="['/commande', prospection.commande?.id, 'view']">{{prospection.commande?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prospection', prospection.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

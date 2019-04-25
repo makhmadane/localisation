@@ -1,0 +1,30 @@
+{
+    "name": "TypeRglment",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "typeRglment",
+            "relationshipName": "reglement"
+        }
+    ],
+    "changelogDate": "20190420135156",
+    "entityTableName": "type_rglment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

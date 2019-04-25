@@ -1,0 +1,23 @@
+{
+    "yesColaApp": {
+        "bonLivraison": {
+            "home": {
+                "title": "BonLivraisons",
+                "createLabel": "Créer un nouveau Bon Livraison",
+                "createOrEditLabel": "Créer ou éditer un Bon Livraison",
+                "search": "Recherche pour Bon Livraison"
+            },
+            "created": "Un nouveau Bon Livraison a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bon Livraison avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bon Livraison avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bon Livraison {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bon Livraison"
+            },
+            "dateBl": "Date Bl",
+            "appro": "Appro"
+        }
+    }
+}

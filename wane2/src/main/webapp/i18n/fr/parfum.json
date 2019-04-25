@@ -1,0 +1,25 @@
+{
+    "yesColaApp": {
+        "parfum": {
+            "home": {
+                "title": "Parfums",
+                "createLabel": "Créer un nouveau Parfum",
+                "createOrEditLabel": "Créer ou éditer un Parfum",
+                "search": "Recherche pour Parfum"
+            },
+            "created": "Un nouveau Parfum a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Parfum avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Parfum avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Parfum {{ id }} ?"
+            },
+            "detail": {
+                "title": "Parfum"
+            },
+            "numeroparf": "Numeroparf",
+            "libelle": "Libelle",
+            "etat": "Etat",
+            "article": "Article"
+        }
+    }
+}

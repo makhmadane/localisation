@@ -1,0 +1,23 @@
+{
+    "yesColaApp": {
+        "typeRoute": {
+            "home": {
+                "title": "TypeRoutes",
+                "createLabel": "Créer un nouveau Type Route",
+                "createOrEditLabel": "Créer ou éditer un Type Route",
+                "search": "Recherche pour Type Route"
+            },
+            "created": "Un nouveau Type Route a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Route avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Route avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Route {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Route"
+            },
+            "libelle": "Libelle",
+            "etat": "Etat"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "yesColaApp": {
+        "depot": {
+            "home": {
+                "title": "Depots",
+                "createLabel": "Créer un nouveau Depot",
+                "createOrEditLabel": "Créer ou éditer un Depot",
+                "search": "Recherche pour Depot"
+            },
+            "created": "Un nouveau Depot a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Depot avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Depot avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Depot {{ id }} ?"
+            },
+            "detail": {
+                "title": "Depot"
+            },
+            "adresse": "Adresse",
+            "telephone": "Telephone",
+            "email": "Email",
+            "longitude": "Longitude",
+            "altitude": "Altitude",
+            "etat": "Etat",
+            "article": "Article"
+        }
+    }
+}

@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="yesColaApp.commande.home.title">Commandes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commande" [routerLink]="['/commande/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="yesColaApp.commande.home.createLabel">
+            Create new Commande
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'yesColaApp.commande.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="commandes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.numCom">Num Com</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.dateCom">Date Com</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.etat">Etat</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.montantLiv">Montant Liv</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.montantRest">Montant Rest</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.boutique">Boutique</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.detailRoute">Detail Route</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.secteur">Secteur</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.livreur">Livreur</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.prevendeur">Prevendeur</span></th>
+            <th><span jhiTranslate="yesColaApp.commande.prospection">Prospection</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let commande of commandes ;trackBy: trackId">
+                <td><a [routerLink]="['/commande', commande.id, 'view' ]">{{commande.id}}</a></td>
+                <td>{{commande.numCom}}</td>
+                <td>{{commande.dateCom | date:'mediumDate'}}</td>
+                <td>{{commande.etat}}</td>
+                <td>{{commande.montantLiv}}</td>
+                <td>{{commande.montantRest}}</td>
+                <td>
+                    <div *ngIf="commande.boutique">
+                        <a [routerLink]="['../boutique', commande.boutique?.id, 'view' ]" >{{commande.boutique?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="commande.detailRoute">
+                        <a [routerLink]="['../detail-route', commande.detailRoute?.id, 'view' ]" >{{commande.detailRoute?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="commande.secteur">
+                        <a [routerLink]="['../secteur', commande.secteur?.id, 'view' ]" >{{commande.secteur?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="commande.livreur">
+                        <a [routerLink]="['../employee', commande.livreur?.id, 'view' ]" >{{commande.livreur?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="commande.prevendeur">
+                        <a [routerLink]="['../employee', commande.prevendeur?.id, 'view' ]" >{{commande.prevendeur?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="commande.prospection">
+                        <a [routerLink]="['../prospection', commande.prospection?.id, 'view' ]" >{{commande.prospection?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/commande', commande.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/commande', commande.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'commande', { outlets: { popup: commande.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

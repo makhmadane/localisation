@@ -1,0 +1,26 @@
+{
+    "name": "BonLivraison",
+    "fields": [
+        {
+            "fieldName": "dateBl",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "appro",
+            "otherEntityRelationshipName": "bonLivraison",
+            "relationshipName": "appro"
+        }
+    ],
+    "changelogDate": "20190424132035",
+    "entityTableName": "bon_livraison",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,25 @@
+{
+    "yesColaApp": {
+        "parfum": {
+            "home": {
+                "title": "Parfums",
+                "createLabel": "Create a new Parfum",
+                "createOrEditLabel": "Create or edit a Parfum",
+                "search": "Search for Parfum"
+            },
+            "created": "A new Parfum is created with identifier {{ param }}",
+            "updated": "A Parfum is updated with identifier {{ param }}",
+            "deleted": "A Parfum is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Parfum {{ id }}?"
+            },
+            "detail": {
+                "title": "Parfum"
+            },
+            "numeroparf": "Numeroparf",
+            "libelle": "Libelle",
+            "etat": "Etat",
+            "article": "Article"
+        }
+    }
+}

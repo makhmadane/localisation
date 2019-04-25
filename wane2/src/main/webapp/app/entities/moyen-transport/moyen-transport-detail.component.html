@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="moyenTransport">
+            <h2><span jhiTranslate="yesColaApp.moyenTransport.detail.title">Moyen Transport</span> {{moyenTransport.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.moyenTransport.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{moyenTransport.matricule}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.moyenTransport.dateList">Date List</span></dt>
+                <dd>
+                    <span>{{moyenTransport.dateList}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.moyenTransport.etat">Etat</span></dt>
+                <dd>
+                    <span>{{moyenTransport.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.moyenTransport.vitesse">Vitesse</span></dt>
+                <dd>
+                    <span>{{moyenTransport.vitesse}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.moyenTransport.capacite">Capacite</span></dt>
+                <dd>
+                    <span>{{moyenTransport.capacite}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.moyenTransport.typeTransport">Type Transport</span></dt>
+                <dd>
+                    <div *ngIf="moyenTransport.typeTransport">
+                        <a [routerLink]="['/type-transport', moyenTransport.typeTransport?.id, 'view']">{{moyenTransport.typeTransport?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/moyen-transport', moyenTransport.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

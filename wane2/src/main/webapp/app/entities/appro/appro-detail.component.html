@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="appro">
+            <h2><span jhiTranslate="yesColaApp.appro.detail.title">Appro</span> {{appro.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="yesColaApp.appro.qteLiv">Qte Liv</span></dt>
+                <dd>
+                    <span>{{appro.qteLiv}}</span>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.appro.article">Article</span></dt>
+                <dd>
+                    <div *ngIf="appro.article">
+                        <a [routerLink]="['/article', appro.article?.id, 'view']">{{appro.article?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="yesColaApp.appro.bonLivraison">Bon Livraison</span></dt>
+                <dd>
+                    <div *ngIf="appro.bonLivraison">
+                        <a [routerLink]="['/bon-livraison', appro.bonLivraison?.id, 'view']">{{appro.bonLivraison?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/appro', appro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

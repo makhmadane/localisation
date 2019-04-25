@@ -1,0 +1,133 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="yesColaApp.route.home.title">Routes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-route" [routerLink]="['/route/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="yesColaApp.route.home.createLabel">
+            Create new Route
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'yesColaApp.route.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="routes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="yesColaApp.route.numero">Numero</span></th>
+            <th><span jhiTranslate="yesColaApp.route.journee">Journee</span></th>
+            <th><span jhiTranslate="yesColaApp.route.dateCreation">Date Creation</span></th>
+            <th><span jhiTranslate="yesColaApp.route.datedepCom">Datedep Com</span></th>
+            <th><span jhiTranslate="yesColaApp.route.dateRCom">Date R Com</span></th>
+            <th><span jhiTranslate="yesColaApp.route.heureDepCom">Heure Dep Com</span></th>
+            <th><span jhiTranslate="yesColaApp.route.heureFinCom">Heure Fin Com</span></th>
+            <th><span jhiTranslate="yesColaApp.route.heureDepLiv">Heure Dep Liv</span></th>
+            <th><span jhiTranslate="yesColaApp.route.heureFinLiv">Heure Fin Liv</span></th>
+            <th><span jhiTranslate="yesColaApp.route.journeeLiv">Journee Liv</span></th>
+            <th><span jhiTranslate="yesColaApp.route.datedepLiv">Datedep Liv</span></th>
+            <th><span jhiTranslate="yesColaApp.route.dateRLiv">Date R Liv</span></th>
+            <th><span jhiTranslate="yesColaApp.route.etat">Etat</span></th>
+            <th><span jhiTranslate="yesColaApp.route.moyenTransport">Moyen Transport</span></th>
+            <th><span jhiTranslate="yesColaApp.route.commande">Commande</span></th>
+            <th><span jhiTranslate="yesColaApp.route.livraison">Livraison</span></th>
+            <th><span jhiTranslate="yesColaApp.route.gerantCommande">Gerant Commande</span></th>
+            <th><span jhiTranslate="yesColaApp.route.prevendeur">Prevendeur</span></th>
+            <th><span jhiTranslate="yesColaApp.route.gerantlivraison">Gerantlivraison</span></th>
+            <th><span jhiTranslate="yesColaApp.route.livreur">Livreur</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let route of routes ;trackBy: trackId">
+                <td><a [routerLink]="['/route', route.id, 'view' ]">{{route.id}}</a></td>
+                <td>{{route.numero}}</td>
+                <td>{{route.journee}}</td>
+                <td>{{route.dateCreation | date:'mediumDate'}}</td>
+                <td>{{route.datedepCom | date:'mediumDate'}}</td>
+                <td>{{route.dateRCom | date:'mediumDate'}}</td>
+                <td>{{route.heureDepCom}}</td>
+                <td>{{route.heureFinCom}}</td>
+                <td>{{route.heureDepLiv}}</td>
+                <td>{{route.heureFinLiv}}</td>
+                <td>{{route.journeeLiv}}</td>
+                <td>{{route.datedepLiv | date:'mediumDate'}}</td>
+                <td>{{route.dateRLiv | date:'mediumDate'}}</td>
+                <td>{{route.etat}}</td>
+                <td>
+                    <div *ngIf="route.moyenTransport">
+                        <a [routerLink]="['../moyen-transport', route.moyenTransport?.id, 'view' ]" >{{route.moyenTransport?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="route.commande">
+                        <a [routerLink]="['../type-route', route.commande?.id, 'view' ]" >{{route.commande?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="route.livraison">
+                        <a [routerLink]="['../type-route', route.livraison?.id, 'view' ]" >{{route.livraison?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{route.gerantCommande?.id}}
+                </td>
+                <td>
+                    <div *ngIf="route.prevendeur">
+                        <a [routerLink]="['../employee', route.prevendeur?.id, 'view' ]" >{{route.prevendeur?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="route.gerantlivraison">
+                        <a [routerLink]="['../employee', route.gerantlivraison?.id, 'view' ]" >{{route.gerantlivraison?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="route.livreur">
+                        <a [routerLink]="['../employee', route.livreur?.id, 'view' ]" >{{route.livreur?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/route', route.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/route', route.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'route', { outlets: { popup: route.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

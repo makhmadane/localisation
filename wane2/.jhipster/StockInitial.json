@@ -1,0 +1,38 @@
+{
+    "name": "StockInitial",
+    "fields": [
+        {
+            "fieldName": "qteStockInit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qteStockEncours",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "boutique",
+            "otherEntityRelationshipName": "stockInitial",
+            "relationshipName": "boutique",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "article",
+            "otherEntityRelationshipName": "stockInitial",
+            "relationshipName": "article",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190420135147",
+    "entityTableName": "stock_initial",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

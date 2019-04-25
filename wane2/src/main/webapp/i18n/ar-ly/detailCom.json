@@ -1,0 +1,25 @@
+{
+    "yesColaApp": {
+        "detailCom": {
+            "home": {
+                "title": "Detail Coms",
+                "createLabel": "Create a new Detail Com",
+                "createOrEditLabel": "Create or edit a Detail Com",
+                "search": "Search for Detail Com"
+            },
+            "created": "A new Detail Com is created with identifier {{ param }}",
+            "updated": "A Detail Com is updated with identifier {{ param }}",
+            "deleted": "A Detail Com is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Detail Com {{ id }}?"
+            },
+            "detail": {
+                "title": "Detail Com"
+            },
+            "qteCom": "Qte Com",
+            "qteLiv": "Qte Liv",
+            "article": "Article",
+            "commande": "Commande"
+        }
+    }
+}

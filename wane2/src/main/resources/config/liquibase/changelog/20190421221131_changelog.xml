@@ -1,0 +1,145 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-1">
+        <addColumn tableName="boutique">
+            <column name="commande_en_cours" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-2">
+        <addColumn tableName="route">
+            <column name="date_creation" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-3">
+        <addColumn tableName="moyen_transport">
+            <column name="date_list" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-4">
+        <addColumn tableName="route">
+            <column name="date_r_com" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-5">
+        <addColumn tableName="route">
+            <column name="date_r_liv" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-6">
+        <addColumn tableName="prospection">
+            <column name="datecreation" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-7">
+        <addColumn tableName="route">
+            <column name="datedep_com" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-8">
+        <addColumn tableName="route">
+            <column name="datedep_liv" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-9">
+        <addColumn tableName="prospection">
+            <column name="datedepart" type="tinyblob"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-10">
+        <addColumn tableName="tablette">
+            <column name="employee_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-11">
+        <addColumn tableName="route">
+            <column name="gerantlivraison_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-12">
+        <addColumn tableName="prospection">
+            <column name="heurearrive" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-13">
+        <addColumn tableName="prospection">
+            <column name="heuredepart" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-14">
+        <addColumn tableName="tablette">
+            <column name="numeropuce" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-15">
+        <addUniqueConstraint columnNames="employee_id" constraintName="UC_TABLETTEEMPLOYEE_ID_COL" tableName="tablette"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-16">
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id" baseTableName="commande" constraintName="FK19h4r9hnt3pjwlrn7xk68ifmc" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-17">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="tablette" constraintName="FK20u4xyim0avdhx4awg3gdlqkc" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-18">
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id" baseTableName="prospection" constraintName="FK99b577cidr56lywx6h3mo4q70" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-19">
+        <addForeignKeyConstraint baseColumnNames="livreur_id" baseTableName="route" constraintName="FKhsvugeqkd24oeujj9wc4a55gd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-20">
+        <addForeignKeyConstraint baseColumnNames="prevendeur_id" baseTableName="route" constraintName="FKhtob5dfg8haa51r9w0qr0q0ei" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-21">
+        <addForeignKeyConstraint baseColumnNames="gerantlivraison_id" baseTableName="route" constraintName="FKon5ebhxppvuod2p0709ompqaa" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-22">
+        <addForeignKeyConstraint baseColumnNames="livreur_id" baseTableName="commande" constraintName="FKplbyqofyoknimfxc0hqiecj5n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-23">
+        <addForeignKeyConstraint baseColumnNames="gerant_id" baseTableName="prospection" constraintName="FKsf5lyx65cpv7urxqw0gvi8m6s" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-24">
+        <dropForeignKeyConstraint baseTableName="commande" constraintName="FK3us06dgnicn260gcf7fvg1kp0"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-25">
+        <dropForeignKeyConstraint baseTableName="route" constraintName="FK3wypjhanwusoqm4ofpu0inyhq"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-26">
+        <dropForeignKeyConstraint baseTableName="route" constraintName="FK47ekk7k92s4g40pr6jmmyelv3"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-27">
+        <dropForeignKeyConstraint baseTableName="route" constraintName="FK4enuoq6vtqv6f2tc02c16o12o"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-28">
+        <dropForeignKeyConstraint baseTableName="prospection" constraintName="FKgg24vw24ghknvn45swhrsxugg"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-29">
+        <dropForeignKeyConstraint baseTableName="commande" constraintName="FKjosyyfgn23unau6jr5orlf3hj"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-30">
+        <dropForeignKeyConstraint baseTableName="prospection" constraintName="FKtrqwmj9ctw9hddk3rr0ucbbja"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-31">
+        <dropForeignKeyConstraint baseTableName="tablette" constraintName="fk_tablette_user_id"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-32">
+        <dropUniqueConstraint constraintName="ux_tablette_user_id" tableName="tablette"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-33">
+        <dropColumn columnName="date_a_list" tableName="moyen_transport"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-34">
+        <dropColumn columnName="date_liv" tableName="route"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-35">
+        <dropColumn columnName="dateprospec" tableName="prospection"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-36">
+        <dropColumn columnName="gerentlivraison_id" tableName="route"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-37">
+        <dropColumn columnName="jhi_date" tableName="route"/>
+    </changeSet>
+    <changeSet author="Makhmadanelo (generated)" id="1555884714831-38">
+        <dropColumn columnName="user_id" tableName="tablette"/>
+    </changeSet>
+</databaseChangeLog>

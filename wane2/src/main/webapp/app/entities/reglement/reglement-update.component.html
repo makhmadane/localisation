@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reglement-heading" jhiTranslate="yesColaApp.reglement.home.createOrEditLabel">Create or edit a Reglement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reglement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reglement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.reglement.dateReg" for="field_dateReg">Date Reg</label>
+                    <div class="input-group">
+                        <input id="field_dateReg" type="text" class="form-control" name="dateReg" ngbDatepicker  #dateRegDp="ngbDatepicker" [(ngModel)]="reglement.dateReg"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRegDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.reglement.montantPayer" for="field_montantPayer">Montant Payer</label>
+                    <input type="text" class="form-control" name="montantPayer" id="field_montantPayer"
+                        [(ngModel)]="reglement.montantPayer" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.reglement.typeRglment" for="field_typeRglment">Type Rglment</label>
+                    <select class="form-control" id="field_typeRglment" name="typeRglment" [(ngModel)]="reglement.typeRglment" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeRglmentOption.id === reglement.typeRglment?.id ? reglement.typeRglment : typeRglmentOption" *ngFor="let typeRglmentOption of typerglments; trackBy: trackTypeRglmentById">{{typeRglmentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="yesColaApp.reglement.commande" for="field_commande">Commande</label>
+                    <select class="form-control" id="field_commande" name="commande" [(ngModel)]="reglement.commande" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="commandeOption.id === reglement.commande?.id ? reglement.commande : commandeOption" *ngFor="let commandeOption of commandes; trackBy: trackCommandeById">{{commandeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
