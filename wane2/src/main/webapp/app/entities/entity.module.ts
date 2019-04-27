@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
                 path: 'prospection',
                 loadChildren: './prospection/prospection.module#YesColaProspectionModule'
             },
+
             {
                 path: 'metier',
                 loadChildren: './metier/metier.module#YesColaMetierModule'
@@ -32,6 +33,7 @@ import { RouterModule } from '@angular/router';
                 path: 'commande',
                 loadChildren: './commande/commande.module#YesColaCommandeModule'
             },
+
             {
                 path: 'detail-com',
                 loadChildren: './detail-com/detail-com.module#YesColaDetailComModule'

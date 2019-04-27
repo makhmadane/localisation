@@ -13,6 +13,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                     path: 'admin',
                     loadChildren: './admin/admin.module#YesColaAdminModule'
                 },
+                {
+                    path: 'livraison',
+                    loadChildren: './livraison/livraison.module#YesColaLivraisonModule'
+                },
                 ...LAYOUT_ROUTES
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }

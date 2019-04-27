@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
+
         !function($) {
             "use strict";
 

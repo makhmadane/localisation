@@ -1,102 +1,243 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-prospection-heading" jhiTranslate="yesColaApp.prospection.home.createOrEditLabel">Create or edit a Prospection</h2>
-            <div>
-                <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!prospection.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="prospection.id" readonly />
+<div class="row justify-content-center col-md-12">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="portlet">
+                <div class="portlet-heading bg-primary">
+                    <h3 class="portlet-title">
+                        Planification prospection
+                    </h3>
+                    <div class="portlet-widgets">
+
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.datedepart" for="field_datedepart">Datedepart</label>
-                    <div class="input-group">
-                        <input id="field_datedepart" type="text" class="form-control" name="datedepart" ngbDatepicker  #datedepartDp="ngbDatepicker" [(ngModel)]="prospection.datedepart"
-                        />
-                        <span class="input-group-append">
+                <div id="bg-primary" class="panel-collapse collapse in">
+                    <div class="portlet-body " >
+                        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+                        <div class="row " style="margin-left: 200px">
+                            <div class="form-group col-md-5">
+                                <label  class="col-sm-3 control-label" jhiTranslate="yesColaApp.prospection.etat" for="field_etat">Etat</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" name="etat" id="field_etat"
+                                       [(ngModel)]="prospection.etat" />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5" >
+                                <label class="col-sm-3 control-label" for="id" jhiTranslate="global.field.id">ID</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" id="id" name="id" disabled
+                                       [(ngModel)]="prospection.id" readonly />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left: 200px">
+                            <div class="form-group col-md-5">
+                                <label  class="col-sm-3 control-label" jhiTranslate="yesColaApp.prospection.datedepart" for="field_datedepart">Datedepart</label>
+                                <div class="input-group">
+                                    <div class="col-sm-9">
+                                    <input id="field_datedepart" type="text" class="form-control" name="datedepart" ngbDatepicker  #datedepartDp="ngbDatepicker" [(ngModel)]="prospection.datedepart"
+                                    />
+                                    </div>
+                                    <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="datedepartDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label  class="col-sm-3 control-label" jhiTranslate="yesColaApp.prospection.nbrprevue" for="field_nbrprevue">Nbrprevue</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="nbrprevue" id="field_nbrprevue"
+                                           [(ngModel)]="prospection.nbrprevue" /></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left: 200px">
+                            <div class="form-group col-md-5">
+                                <label  class="col-sm-3 control-label" jhiTranslate="yesColaApp.prospection.journee" for="field_journee">Journee</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" name="journee" id="field_journee"
+                                       [(ngModel)]="prospection.journee" /></div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label  class="col-sm-3 control-label" jhiTranslate="yesColaApp.prospection.nbreatteint" for="field_nbreatteint">Nbreatteint</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" name="nbreatteint" id="field_nbreatteint" disabled
+                                       [(ngModel)]="prospection.nbreatteint" /></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left: 200px">
+                            <div class="form-group col-md-5">
+                                <label  class="col-sm-3 control-label" jhiTranslate="yesColaApp.prospection.prevendeur" for="field_prevendeur">Prevendeur</label>
+                                <div class="col-sm-9">
+                                <select class="form-control" id="field_prevendeur" name="prevendeur" [(ngModel)]="prospection.prevendeur" >
+                                    <option [ngValue]="null"></option>
+                                    <option [ngValue]="employeeOption.id === prospection.prevendeur?.id ? prospection.prevendeur : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                                </select></div>
+                            </div>
+                            <div class="col-md-5">
+                                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                                </button>
+                                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                                </button>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.datecreation" for="field_datecreation">Datecreation</label>
-                    <div class="input-group">
-                        <input id="field_datecreation" type="text" class="form-control" name="datecreation" ngbDatepicker  #datecreationDp="ngbDatepicker" [(ngModel)]="prospection.datecreation"
-                        />
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="datecreationDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="portlet">
+                <div class="portlet-heading bg-primary">
+                    <h3 class="portlet-title">
+                        Complement d'information de prospection
+                    </h3>
+                    <div class="portlet-widgets">
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="bg-primary" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <div class="row">
+                            <!-- Basic example -->
+                            <div class="col-md-8">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">Associer les boutiques prospectées par secteur</h3></div>
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Boutique1</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control">
+                                                        <option>Secteur</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Boutique2</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control">
+                                                        <option>Secteur</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Boutique3</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control">
+                                                        <option>Secteur</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div><!-- panel-body -->
+                                </div> <!-- panel -->
+                            </div> <!-- col-->
+                            <div class="col-md-4">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">Statistiques de la Prospection</h3></div>
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">TV</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">TS</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control">
+
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div><!-- panel-body -->
+                                </div> <!-- panel -->
+                            </div> <!-- col-->
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.heuredepart" for="field_heuredepart">Heuredepart</label>
-                    <input type="text" class="form-control" name="heuredepart" id="field_heuredepart"
-                        [(ngModel)]="prospection.heuredepart" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.heurearrive" for="field_heurearrive">Heurearrive</label>
-                    <input type="text" class="form-control" name="heurearrive" id="field_heurearrive"
-                        [(ngModel)]="prospection.heurearrive" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.journee" for="field_journee">Journee</label>
-                    <input type="text" class="form-control" name="journee" id="field_journee"
-                        [(ngModel)]="prospection.journee" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.nbreatteint" for="field_nbreatteint">Nbreatteint</label>
-                    <input type="text" class="form-control" name="nbreatteint" id="field_nbreatteint"
-                        [(ngModel)]="prospection.nbreatteint" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.nbrprevue" for="field_nbrprevue">Nbrprevue</label>
-                    <input type="text" class="form-control" name="nbrprevue" id="field_nbrprevue"
-                        [(ngModel)]="prospection.nbrprevue" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.etat" for="field_etat">Etat</label>
-                    <input type="text" class="form-control" name="etat" id="field_etat"
-                        [(ngModel)]="prospection.etat" />
+            </div>
+        </div>
+        <!--<div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+                <h2 id="jhi-prospection-heading" jhiTranslate="yesColaApp.prospection.home.createOrEditLabel">Create or edit a Prospection</h2>
+                <div>
+                    <jhi-alert-error></jhi-alert-error>
+
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="yesColaApp.prospection.datecreation" for="field_datecreation">Datecreation</label>
+                        <div class="input-group">
+                            <input id="field_datecreation" type="text" class="form-control" name="datecreation" ngbDatepicker  #datecreationDp="ngbDatepicker" [(ngModel)]="prospection.datecreation"
+                            />
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-secondary" (click)="datecreationDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="yesColaApp.prospection.heuredepart" for="field_heuredepart">Heuredepart</label>
+                        <input type="text" class="form-control" name="heuredepart" id="field_heuredepart"
+                            [(ngModel)]="prospection.heuredepart" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="yesColaApp.prospection.heurearrive" for="field_heurearrive">Heurearrive</label>
+                        <input type="text" class="form-control" name="heurearrive" id="field_heurearrive"
+                            [(ngModel)]="prospection.heurearrive" />
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="yesColaApp.prospection.gerant" for="field_gerant">Gerant</label>
+                        <select class="form-control" id="field_gerant" name="gerant" [(ngModel)]="prospection.gerant" >
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="employeeOption.id === prospection.gerant?.id ? prospection.gerant : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="yesColaApp.prospection.moyenTransport" for="field_moyenTransport">Moyen Transport</label>
+                        <select class="form-control" id="field_moyenTransport" name="moyenTransport" [(ngModel)]="prospection.moyenTransport" >
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="moyenTransportOption.id === prospection.moyenTransport?.id ? prospection.moyenTransport : moyenTransportOption" *ngFor="let moyenTransportOption of moyentransports; trackBy: trackMoyenTransportById">{{moyenTransportOption.id}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="yesColaApp.prospection.commande" for="field_commande">Commande</label>
+                        <select class="form-control" id="field_commande" name="commande" [(ngModel)]="prospection.commande" >
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="commandeOption.id === prospection.commande?.id ? prospection.commande : commandeOption" *ngFor="let commandeOption of commandes; trackBy: trackCommandeById">{{commandeOption.id}}</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.prevendeur" for="field_prevendeur">Prevendeur</label>
-                    <select class="form-control" id="field_prevendeur" name="prevendeur" [(ngModel)]="prospection.prevendeur" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="employeeOption.id === prospection.prevendeur?.id ? prospection.prevendeur : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.gerant" for="field_gerant">Gerant</label>
-                    <select class="form-control" id="field_gerant" name="gerant" [(ngModel)]="prospection.gerant" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="employeeOption.id === prospection.gerant?.id ? prospection.gerant : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.moyenTransport" for="field_moyenTransport">Moyen Transport</label>
-                    <select class="form-control" id="field_moyenTransport" name="moyenTransport" [(ngModel)]="prospection.moyenTransport" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="moyenTransportOption.id === prospection.moyenTransport?.id ? prospection.moyenTransport : moyenTransportOption" *ngFor="let moyenTransportOption of moyentransports; trackBy: trackMoyenTransportById">{{moyenTransportOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="yesColaApp.prospection.commande" for="field_commande">Commande</label>
-                    <select class="form-control" id="field_commande" name="commande" [(ngModel)]="prospection.commande" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="commandeOption.id === prospection.commande?.id ? prospection.commande : commandeOption" *ngFor="let commandeOption of commandes; trackBy: trackCommandeById">{{commandeOption.id}}</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>-->
     </div>
-</div>

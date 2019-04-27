@@ -1,4 +1,5 @@
 import './vendor.ts';
+
 import {MatCardModule} from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,11 @@ import { YesColaEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import {CommandeModule} from "./livraison/livraison.module";
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {DragAndDropModule} from "./drag-and-drop/drag-and-drop.module";
+import {jhiCdkDragDropConnectedSortingGroupExampleComponent} from "./drag-and-drop/drag-and-drop.component";
 
 
 
@@ -40,6 +46,9 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         YesColaHomeModule,
         YesColaAccountModule,
         MatCardModule,
+        CommandeModule,
+        DragDropModule,
+        DragAndDropModule,
 
 
 
@@ -71,7 +80,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
             multi: true
         }
     ],
-    bootstrap: [JhiMainComponent]
+    bootstrap: [JhiMainComponent,jhiCdkDragDropConnectedSortingGroupExampleComponent]
 })
 export class YesColaAppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {
