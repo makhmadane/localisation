@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { YesColaSharedModule } from 'app/shared';
 import {
     CommandeComponent,
@@ -17,7 +17,7 @@ import {
 const ENTITY_STATES = [...commandeRoute, ...commandePopupRoute];
 
 @NgModule({
-    imports: [YesColaSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [YesColaSharedModule, RouterModule.forChild(ENTITY_STATES),DragDropModule],
     declarations: [
         CommandeComponent,
         CommandeDetailComponent,

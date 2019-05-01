@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
                     this.router.navigate(['']);
                 }
                 document.getElementById('dane').style.visibility='visible';
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/drag']);
             })
             .catch(() => {
                 this.authenticationError = true;

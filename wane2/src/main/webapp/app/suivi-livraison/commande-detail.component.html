@@ -1,0 +1,303 @@
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="portlet">
+                <div class="portlet-heading bg-primary">
+                    <h3 class="portlet-title">
+                        Détails Commande
+                    </h3>
+                    <div class="portlet-widgets">
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="bg-primary" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <div class="col-12">
+                            <div *ngIf="commande">
+
+                                <hr>
+                                <jhi-alert-error></jhi-alert-error>
+                                <div class="row" style="margin-left: 200px">
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Route</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                                   />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Nom Vendeur</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Nom Boutique</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left: 200px">
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Etat</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control">
+                                                <option>Non Livrer</option>
+                                                <option>Livrer Pas Payer</option>
+                                                <option>Livrer et Payer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Prenom Vendeur</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="col-sm-3 control-label">Metier</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="col-sm-3 control-label">Qualite</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left: 200px">
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label" type="date">Date</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Telephone</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Secteur</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left: 200px">
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Jour</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control">
+                                                <option>Lundi</option>
+                                                <option>Mardi</option>
+                                                <option>Mercredi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Telephone propriétaire</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-sm-3 control-label">Commune</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="route"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Article</th>
+                                                <th>Quantité Commandée</th>
+                                                <th>Prix</th>
+                                                <th>Total</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td >poivre</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tomato</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@TwBootstrap</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tomato</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td >Larry the Bird</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Date Réglement</th>
+                                                        <th>Montant Verser</th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td >1</td>
+                                                        <td>Mark</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            <div class="col-md-6" style="margin-right: 0px">
+                                        <div class=" row form-group ">
+                                            <label class="col-sm-2 control-label">Montant Hors Taxe</label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="route"
+                                                />
+                                            </div><label class="col-sm-2 control-label">Ouguiya</label>
+
+                                        </div>
+                                        <div class=" row form-group ">
+                                            <label class="col-md-2 control-label">Taxe</label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="route"
+                                                />
+                                            </div><label class="col-sm-2 control-label">%</label>
+                                            </div>
+                                        </div>
+                                        <div class=" row form-group ">
+                                            <label class="col-md-2 control-label">Montant avec Taxe</label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="route"
+                                                />
+                                            </div><label class="col-sm-2 control-label">Ouguiya</label>
+                                            </div>
+                                        </div>
+                            </div>
+                            </div>
+
+                            <button type="submit"
+                                    (click)="previousState()"
+                                    class="btn btn-info">
+                                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                            </button>
+                                </div>
+
+                              <!--  <dl class="row-md jh-entity-details">
+                                    <dt><span jhiTranslate="yesColaApp.commande.numCom">Num Com</span></dt>
+                                    <dd>
+                                        <span>{{commande.numCom}}</span>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.dateCom">Date Com</span></dt>
+                                    <dd>
+                                        <span>{{commande.dateCom}}</span>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.etat">Etat</span></dt>
+                                    <dd>
+                                        <span>{{commande.etat}}</span>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.montantLiv">Montant Liv</span></dt>
+                                    <dd>
+                                        <span>{{commande.montantLiv}}</span>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.montantRest">Montant Rest</span></dt>
+                                    <dd>
+                                        <span>{{commande.montantRest}}</span>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.boutique">Boutique</span></dt>
+                                    <dd>
+                                        <div *ngIf="commande.boutique">
+                                            <a [routerLink]="['/boutique', commande.boutique?.id, 'view']">{{commande.boutique?.id}}</a>
+                                        </div>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.detailRoute">Detail Route</span></dt>
+                                    <dd>
+                                        <div *ngIf="commande.detailRoute">
+                                            <a [routerLink]="['/detail-route', commande.detailRoute?.id, 'view']">{{commande.detailRoute?.id}}</a>
+                                        </div>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.secteur">Secteur</span></dt>
+                                    <dd>
+                                        <div *ngIf="commande.secteur">
+                                            <a [routerLink]="['/secteur', commande.secteur?.id, 'view']">{{commande.secteur?.id}}</a>
+                                        </div>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.livreur">Livreur</span></dt>
+                                    <dd>
+                                        <div *ngIf="commande.livreur">
+                                            <a [routerLink]="['/employee', commande.livreur?.id, 'view']">{{commande.livreur?.id}}</a>
+                                        </div>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.prevendeur">Prevendeur</span></dt>
+                                    <dd>
+                                        <div *ngIf="commande.prevendeur">
+                                            <a [routerLink]="['/employee', commande.prevendeur?.id, 'view']">{{commande.prevendeur?.id}}</a>
+                                        </div>
+                                    </dd>
+                                    <dt><span jhiTranslate="yesColaApp.commande.prospection">Prospection</span></dt>
+                                    <dd>
+                                        <div *ngIf="commande.prospection">
+                                            <a [routerLink]="['/prospection', commande.prospection?.id, 'view']">{{commande.prospection?.id}}</a>
+                                        </div>
+                                    </dd>
+                                </dl>-->
+
+
+
+                                <!--<button type="button"
+                                        [routerLink]="['/commande', commande.id, 'edit']"
+                                        class="btn btn-primary">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                                </button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+</div>

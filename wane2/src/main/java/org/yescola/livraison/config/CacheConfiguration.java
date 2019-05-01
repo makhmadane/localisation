@@ -90,6 +90,8 @@ public class CacheConfiguration {
             cm.createCache(org.yescola.livraison.domain.BonLivraison.class.getName(), jcacheConfiguration);
             cm.createCache(org.yescola.livraison.domain.BonLivraison.class.getName() + ".appros", jcacheConfiguration);
             cm.createCache(org.yescola.livraison.domain.Appro.class.getName(), jcacheConfiguration);
+            cm.createCache(org.yescola.livraison.domain.Boutique_route.class.getName(),jcacheConfiguration);
+
             // jhipster-needle-ehcache-add-entry
         };
     }

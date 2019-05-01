@@ -17,10 +17,11 @@ import { ISecteur } from 'app/shared/model/secteur.model';
 import { SecteurService } from 'app/entities/secteur';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { EmployeeService } from 'app/entities/employee';
-
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 @Component({
     selector: 'jhi-commande-update',
-    templateUrl: './commande-update.component.html'
+    templateUrl: './commande-update.component.html',
+    styleUrls: ['commande.component.scss'],
 })
 export class CommandeUpdateComponent implements OnInit {
     commande: ICommande;
@@ -36,7 +37,8 @@ export class CommandeUpdateComponent implements OnInit {
 
     prospections: IProspection[];
     dateComDp: any;
-
+    todo:any[];
+    done:any[];
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected commandeService: CommandeService,
@@ -174,5 +176,30 @@ export class CommandeUpdateComponent implements OnInit {
 
     trackProspectionById(index: number, item: IProspection) {
         return item.id;
+    }
+    todo = [
+        'Get to work',
+        'Pick up groceries',
+        'Go home',
+        'Fall asleep'
+    ];
+
+    done = [
+        'Get up',
+        'Brush teeth',
+        'Take a shower',
+        'Check e-mail',
+        'Walk dog'
+    ];
+
+    drop(event: CdkDragDrop<string[]>) {
+        if (event.previousContainer === event.container) {
+            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        } else {
+            transferArrayItem(event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex);
+        }
     }
 }

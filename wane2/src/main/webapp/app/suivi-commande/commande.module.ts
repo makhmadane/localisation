@@ -29,7 +29,7 @@ const ENTITY_STATES = [...commandeRoute, ...commandePopupRoute];
     providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class YesColaCommandeModule {
+export class Suivi_Com_Module {
     constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
         this.languageHelper.language.subscribe((languageKey: string) => {
             if (languageKey !== undefined) {

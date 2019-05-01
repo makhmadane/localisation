@@ -20,10 +20,10 @@ import { EmployeeService } from 'app/entities/employee';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 @Component({
     selector: 'jhi-commande-update',
-    templateUrl: './livraison-update.component.html',
+    templateUrl: './commande-update.component.html',
     styleUrls: ['commande.component.scss'],
 })
-export class LivraisonUpdateComponent implements OnInit {
+export class CommandeUpdateComponent implements OnInit {
     commande: ICommande;
     isSaving: boolean;
 
@@ -39,8 +39,6 @@ export class LivraisonUpdateComponent implements OnInit {
     dateComDp: any;
     todo:any[];
     done:any[];
-    todo1:any[];
-    done1:any[];
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected commandeService: CommandeService,
@@ -179,55 +177,6 @@ export class LivraisonUpdateComponent implements OnInit {
     trackProspectionById(index: number, item: IProspection) {
         return item.id;
     }
-    todo = [
-        'Get to work',
-        'Pick up groceries',
-        'Go home',
-        'Fall asleep'
-    ];
 
-    done = [
-        'Get up',
-        'Brush teeth',
-        'Take a shower',
-        'Check e-mail',
-        'Walk dog'
-    ];
-    todo1 = [
-        'Get to work',
-        'Pick up groceries',
-        'Go home',
-        'Fall asleep'
-    ];
 
-    done1 = [
-        'Get up',
-        'Brush teeth',
-        'Take a shower',
-        'Check e-mail',
-        'Walk dog'
-    ];
-
-    drop(event: CdkDragDrop<string[]>) {
-        console.log("dane")
-        if (event.previousContainer === event.container) {
-            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-        } else {
-            transferArrayItem(event.previousContainer.data,
-                event.container.data,
-                event.previousIndex,
-                event.currentIndex);
-        }
-    }
-    drop1(event: CdkDragDrop<string[]>) {
-
-        if (event.previousContainer === event.container) {
-            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-        } else {
-            transferArrayItem(event.previousContainer.data,
-                event.container.data,
-                event.previousIndex,
-                event.currentIndex);
-        }
-    }
 }

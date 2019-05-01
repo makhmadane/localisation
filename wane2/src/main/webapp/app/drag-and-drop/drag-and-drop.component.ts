@@ -1,8 +1,10 @@
+
+
 import {Component} from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 /**
- * @title Drag&Drop sorting
+ * @title Drag&Drop connected sorting
  */
 @Component({
     selector: 'jhi-drag',
@@ -10,19 +12,34 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
     styleUrls: ['drag-and-drop.component.scss'],
 })
 export class jhiCdkDragDropConnectedSortingGroupExampleComponent {
-    movies = [
-        'Episode I - The Phantom Menace',
-        'Episode II - Attack of the Clones',
-        'Episode III - Revenge of the Sith',
-        'Episode IV - A New Hope',
-        'Episode V - The Empire Strikes Back',
-        'Episode VI - Return of the Jedi',
-        'Episode VII - The Force Awakens',
-        'Episode VIII - The Last Jedi'
+    todo = [
+        'Get to work',
+        'Pick up groceries',
+        'Go home',
+        'Fall asleep'
+    ];
+
+    done = [
+        'Get up',
+        'Brush teeth',
+        'Take a shower',
+        'Check e-mail',
+        'Walk dog'
     ];
 
     drop(event: CdkDragDrop<string[]>) {
-        console.log("test")
-        moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+        if (event.previousContainer === event.container) {
+            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        } else {
+            transferArrayItem(event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex);
+        }
     }
 }
+
+
+/**  Copyright 2019 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license */

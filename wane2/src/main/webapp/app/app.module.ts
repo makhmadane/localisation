@@ -26,6 +26,8 @@ import {CommandeModule} from "./livraison/livraison.module";
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {DragAndDropModule} from "./drag-and-drop/drag-and-drop.module";
 import {jhiCdkDragDropConnectedSortingGroupExampleComponent} from "./drag-and-drop/drag-and-drop.component";
+import {Suivi_Com_Module} from "./suivi-commande/commande.module";
+import {Suivi_Liv_Module} from "./suivi-livraison/commande.module";
 
 
 
@@ -46,9 +48,11 @@ import {jhiCdkDragDropConnectedSortingGroupExampleComponent} from "./drag-and-dr
         YesColaHomeModule,
         YesColaAccountModule,
         MatCardModule,
+        Suivi_Com_Module,
         CommandeModule,
         DragDropModule,
         DragAndDropModule,
+        Suivi_Liv_Module,
 
 
 

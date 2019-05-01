@@ -5,22 +5,22 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
-import { IDetailCom } from 'app/shared/model/detail-com.model';
+import { ICommande } from 'app/shared/model/commande.model';
 import { AccountService } from 'app/core';
-import { DetailComService } from './detail-com.service';
+import { CommandeService } from './commande.service';
 
 @Component({
-    selector: 'jhi-detail-com',
-    templateUrl: './detail-com.component.html'
+    selector: 'jhi-commande',
+    templateUrl: './commande.component.html'
 })
-export class DetailComComponent implements OnInit, OnDestroy {
-    detailComs: IDetailCom[];
+export class CommandeComponent implements OnInit, OnDestroy {
+    commandes: ICommande[];
     currentAccount: any;
     eventSubscriber: Subscription;
     currentSearch: string;
 
     constructor(
-        protected detailComService: DetailComService,
+        protected commandeService: CommandeService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected activatedRoute: ActivatedRoute,
@@ -34,28 +34,29 @@ export class DetailComComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
-            this.detailComService
+            this.commandeService
                 .search({
                     query: this.currentSearch
                 })
                 .pipe(
-                    filter((res: HttpResponse<IDetailCom[]>) => res.ok),
-                    map((res: HttpResponse<IDetailCom[]>) => res.body)
+                    filter((res: HttpResponse<ICommande[]>) => res.ok),
+                    map((res: HttpResponse<ICommande[]>) => res.body)
                 )
-                .subscribe((res: IDetailCom[]) => (this.detailComs = res), (res: HttpErrorResponse) => this.onError(res.message));
+                .subscribe((res: ICommande[]) => (this.commandes = res), (res: HttpErrorResponse) => this.onError(res.message));
             return;
         }
-        this.detailComService
+        this.commandeService
             .query()
             .pipe(
-                filter((res: HttpResponse<IDetailCom[]>) => res.ok),
-                map((res: HttpResponse<IDetailCom[]>) => res.body)
+                filter((res: HttpResponse<ICommande[]>) => res.ok),
+                map((res: HttpResponse<ICommande[]>) => res.body)
             )
             .subscribe(
-                (res: IDetailCom[]) => {
-                    this.detailComs = res;
+                (res: ICommande[]) => {
+                    this.commandes = res;
                     this.currentSearch = '';
-                    console.log(this.detailComs);
+                    console.log(this.commandes);
+
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -79,19 +80,19 @@ export class DetailComComponent implements OnInit, OnDestroy {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
-        this.registerChangeInDetailComs();
+        this.registerChangeInCommandes();
     }
 
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    trackId(index: number, item: IDetailCom) {
+    trackId(index: number, item: ICommande) {
         return item.id;
     }
 
-    registerChangeInDetailComs() {
-        this.eventSubscriber = this.eventManager.subscribe('detailComListModification', response => this.loadAll());
+    registerChangeInCommandes() {
+        this.eventSubscriber = this.eventManager.subscribe('commandeListModification', response => this.loadAll());
     }
 
     protected onError(errorMessage: string) {

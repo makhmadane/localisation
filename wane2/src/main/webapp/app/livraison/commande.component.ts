@@ -11,13 +11,16 @@ import { CommandeService } from './commande.service';
 
 @Component({
     selector: 'jhi-commande',
-    templateUrl: './commande.component.html'
+    templateUrl: './commande.component.html',
+
 })
 export class CommandeComponent implements OnInit, OnDestroy {
     commandes: ICommande[];
     currentAccount: any;
     eventSubscriber: Subscription;
     currentSearch: string;
+    todo:any[];
+    done:any[];
 
     constructor(
         protected commandeService: CommandeService,
@@ -31,6 +34,7 @@ export class CommandeComponent implements OnInit, OnDestroy {
                 ? this.activatedRoute.snapshot.params['search']
                 : '';
     }
+
 
     loadAll() {
         if (this.currentSearch) {

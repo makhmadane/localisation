@@ -8,7 +8,7 @@ import { Commande } from 'app/shared/model/commande.model';
 import { CommandeService } from './commande.service';
 import { CommandeComponent } from './commande.component';
 import { CommandeDetailComponent } from './commande-detail.component';
-import { LivraisonUpdateComponent} from '../livraison/livraison-update.component';
+import { CommandeUpdateComponent } from './commande-update.component';
 import { CommandeDeletePopupComponent } from './commande-delete-dialog.component';
 import { ICommande } from 'app/shared/model/commande.model';
 
@@ -30,7 +30,7 @@ export class CommandeResolve implements Resolve<ICommande> {
 
 export const commandeRoute: Routes = [
     {
-        path: 'livraison',
+        path: 'suivi-liv',
         component: CommandeComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const commandeRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'livraison/:id/view',
+        path: 'suivi-liv/:id/view',
         component: CommandeDetailComponent,
         resolve: {
             commande: CommandeResolve
@@ -51,20 +51,20 @@ export const commandeRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'livraison/new',
-        component: LivraisonUpdateComponent,
+        path: 'suivi-liv/new',
+        component: CommandeUpdateComponent,
         resolve: {
             commande: CommandeResolve
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: ''
+            pageTitle: 'yesColaApp.commande.home.title'
         },
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'livraison/:id/edit',
-        component: LivraisonUpdateComponent,
+        path: 'suivi-liv/:id/edit',
+        component: CommandeUpdateComponent,
         resolve: {
             commande: CommandeResolve
         },

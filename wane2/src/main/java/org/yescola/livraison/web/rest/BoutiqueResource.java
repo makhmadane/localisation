@@ -1,5 +1,7 @@
 package org.yescola.livraison.web.rest;
 import org.yescola.livraison.domain.Boutique;
+import org.yescola.livraison.domain.Boutique_route;
+import org.yescola.livraison.domain.Route;
 import org.yescola.livraison.repository.BoutiqueRepository;
 import org.yescola.livraison.repository.search.BoutiqueSearchRepository;
 import org.yescola.livraison.web.rest.errors.BadRequestAlertException;
@@ -102,6 +104,7 @@ public class BoutiqueResource {
         return boutiqueRepository.findAllWithEagerRelationships();
     }
 
+
     /**
      * GET  /boutiques/:id : get the "id" boutique.
      *
@@ -143,5 +146,13 @@ public class BoutiqueResource {
             .stream(boutiqueSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+
+    @GetMapping("/boutiqueRoute")
+    public List<Route> getRoute() {
+
+        List<Route> boutique = boutiqueRepository.findroute();
+        return  boutique;
+    }
+
 
 }
