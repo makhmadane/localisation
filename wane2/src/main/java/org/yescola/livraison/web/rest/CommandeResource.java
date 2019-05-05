@@ -1,5 +1,7 @@
 package org.yescola.livraison.web.rest;
+import org.yescola.livraison.domain.Article;
 import org.yescola.livraison.domain.Commande;
+import org.yescola.livraison.domain.Route;
 import org.yescola.livraison.repository.CommandeRepository;
 import org.yescola.livraison.repository.search.CommandeSearchRepository;
 import org.yescola.livraison.web.rest.errors.BadRequestAlertException;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -133,6 +136,51 @@ public class CommandeResource {
         return StreamSupport
             .stream(commandeSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+
+
+    @GetMapping("/commandeArticle/{id}")
+    public ResponseEntity<Object[]> findarticle(@PathVariable Long id) {
+        System.out.println(id);
+        Optional<Object[]> ARTICLE = commandeRepository.findarticle(id);
+        return ResponseUtil.wrapOrNotFound(ARTICLE);
+    }
+
+
+
+    @GetMapping("/commandesEtat")
+    public List<String> getSearchEtat() {
+        return commandeRepository.findAllEtat();
+    }
+
+
+    @GetMapping("/commandesBoutique")
+    public List<String> getSearchBoutique() {
+        log.debug("REST request to get all Commandes");
+        return commandeRepository.findAllBoutique();
+    }
+
+    @GetMapping("/commandesSecteur")
+    public List<String> getSearchSecteur() {
+        log.debug("REST request to get all Commandes");
+        return commandeRepository.findAllSecteur();
+    }
+
+    @GetMapping("/commandesDate")
+    public List<String> getSearchDate() {
+        log.debug("REST request to get all Commandes");
+        return commandeRepository.findAllDate();
+    }
+
+    @GetMapping("/commandesPrevendeur")
+    public List<String> getSearchPrevendeur() {
+        log.debug("REST request to get all Commandes");
+        return commandeRepository.findAllPrevendeur();
+    }
+    @GetMapping("/changeEtat/{id}/{nom}")
+    public void changeEtat(@PathVariable Long id,@PathVariable String nom) {
+        log.debug("REST request to get all Commandes");
+        commandeRepository.ChangeEtat(id,nom);
     }
 
 }

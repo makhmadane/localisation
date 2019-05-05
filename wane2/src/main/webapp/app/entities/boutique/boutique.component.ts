@@ -55,6 +55,7 @@ export class BoutiqueComponent implements OnInit, OnDestroy {
                 (res: IBoutique[]) => {
                     this.boutiques = res;
                     this.currentSearch = '';
+                    console.log(this.boutiques);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );

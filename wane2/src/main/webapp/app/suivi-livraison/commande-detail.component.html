@@ -4,7 +4,7 @@
             <div class="portlet">
                 <div class="portlet-heading bg-primary">
                     <h3 class="portlet-title">
-                        Détails Commande
+                        Détails Livraison
                     </h3>
                     <div class="portlet-widgets">
 
@@ -18,37 +18,38 @@
 
                                 <hr>
                                 <jhi-alert-error></jhi-alert-error>
-                                <div class="row" style="margin-left: 200px">
+                                <div class="row" >
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Route</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route" value="{{commande.detailRoute.route.numero}}"
                                                    />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Nom Vendeur</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route" value="{{commande.prevendeur.nomcomplet}}"
                                             />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Nom Boutique</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route"  value="{{commande.boutique.nomBoutique}}"
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-left: 200px">
+                                <div class="row" >
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Etat</label>
                                         <div class="col-sm-9">
                                             <select class="form-control">
-                                                <option>Non Livrer</option>
-                                                <option>Livrer Pas Payer</option>
-                                                <option>Livrer et Payer</option>
+                                                <option>{{commande.etat}}</option>
+                                                <option *ngIf="commande.etat!='Non Livrer'">Non Livrer</option>
+                                                <option *ngIf="commande.etat!='Livrer Pas Payer'">Livrer Pas Payer</option>
+                                                <option *ngIf="commande.etat!='Livrer et Payer'">Livrer et Payer</option>
                                             </select>
                                         </div>
                                     </div>
@@ -60,44 +61,43 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label class="col-sm-3 control-label">Metier</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                        <label class="col-sm-6 control-label">Metier</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" name="route" value="{{commande.boutique.metier.libelle}}"
                                             />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label class="col-sm-3 control-label">Qualite</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
-                                            />
+                                        <label class="col-sm-6 control-label">Qualite</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" name="route" value="{{commande.boutique.qualite.libelle}}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-left: 200px">
+                                <div class="row" >
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label" type="date">Date</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route" value="{{commande.dateCom.calendar()}}"
                                             />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Telephone</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route" value="{{commande.boutique.telephone}}"
                                             />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Secteur</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route" value="{{commande.secteur.nomSecteur}}"
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-left: 200px">
+                                <div class="row" >
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Jour</label>
                                         <div class="col-sm-9">
@@ -111,7 +111,7 @@
                                     <div class="form-group col-md-4">
                                         <label class="col-sm-3 control-label">Telephone propriétaire</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="route"
+                                            <input type="text" class="form-control" name="route" value="{{commande.boutique.telproprietaire}}"
                                             />
                                         </div>
                                     </div>
@@ -124,46 +124,38 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12">
+                                    <div class="col-md-10 "  style="margin-left: 100px; margin-right: 100px;">
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
                                                 <th>Article</th>
                                                 <th>Quantité Commandée</th>
+                                                <th>Quantité Livrée</th>
                                                 <th>Prix</th>
                                                 <th>Total</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td >poivre</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tomato</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@TwBootstrap</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tomato</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td >Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+
+                        <tr *ngFor="let art of article">
+                                                <td>{{art[1]}}</td>
+                                                <td>{{art[2]}}</td>
+                                                <td>x</td>
+                                                <td>{{art[3]}}</td>
+                                                <td>{{art[3]*art[2]}}</td>
+
+                        </tr>
+
+
+
                                             </tbody>
                                         </table>
+                                        <div class="alert alert-primary" *ngIf="!article">Pas d'article</div>
                                     </div>
-                                    <br><br>
-                                    <div class="row">
+
+
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-xs-12">
@@ -190,8 +182,7 @@
                                             </div>
                                         </div>
                                     </div>
-
-                            <div class="col-md-6" style="margin-right: 0px">
+                                    <div class="col-md-6" style="padding-left: 100px">
                                         <div class=" row form-group ">
                                             <label class="col-sm-2 control-label">Montant Hors Taxe</label>
                                             <div class="col-md-3">
@@ -206,19 +197,31 @@
                                                 <input type="text" class="form-control" name="route"
                                                 />
                                             </div><label class="col-sm-2 control-label">%</label>
-                                            </div>
                                         </div>
                                         <div class=" row form-group ">
                                             <label class="col-md-2 control-label">Montant avec Taxe</label>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <input type="text" class="form-control" name="route"
                                                 />
                                             </div><label class="col-sm-2 control-label">Ouguiya</label>
-                                            </div>
                                         </div>
-                            </div>
-                            </div>
+                                        <div class=" row form-group ">
+                                            <label class="col-md-2 control-label">Montant Payer</label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="route"
+                                                />
+                                            </div><label class="col-sm-2 control-label">Ouguiya</label>
+                                        </div>
+                                        <div class=" row form-group ">
+                                            <label class="col-md-2 control-label">Montant Restant</label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="route"
+                                                />
+                                            </div><label class="col-sm-2 control-label">Ouguiya</label>
+                                        </div>
 
+                                    </div>
+                                </div>
                             <button type="submit"
                                     (click)="previousState()"
                                     class="btn btn-info">

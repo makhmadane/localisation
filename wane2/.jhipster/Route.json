@@ -124,7 +124,7 @@
             "otherEntityRelationshipName": "route",
             "relationshipName": "boutique",
             "otherEntityField": "id",
-            "ownerSide": false
+            "ownerSide": true
         }
     ],
     "changelogDate": "20190420135152",

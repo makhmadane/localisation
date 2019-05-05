@@ -55,6 +55,7 @@ export class RouteComponent implements OnInit, OnDestroy {
                 (res: IRoute[]) => {
                     this.routes = res;
                     this.currentSearch = '';
+                    console.log(this.routes);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );

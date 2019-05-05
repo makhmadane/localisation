@@ -1,4 +1,4 @@
-<div>
+<div style="z-index:1 ;">
     <!--   <h2 id="page-heading">
      <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commande" [routerLink]="['/commande/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
@@ -24,6 +24,27 @@
             </form>
         </div>
     </div>-->
+  <!--  <button (click)="openConfirmationDialog()" type="button" class="btn btn-primary">Open dialog</button>-->
+
+    <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none">
+        <div class="modal-dialog" style="width:55%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="custom-width-modalLabel">Modal Heading</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Voulez vous changer d'Etat ?</h4>
+
+                </div>
+                <div class="modal-footer">
+                    <button (click)="close()" type="button" class="btn btn-default waves-effect" data-dismiss="modal">Non</button>
+                    <button  (click)="ChangeEtat()" data-dismiss="modal" type="button" class="btn btn-primary waves-effect waves-light">Oui</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <button id="etat" style="visibility: hidden"  type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal" >Custom width Modal</button>
 
     <div class="row">
         <div class="col-lg-12">
@@ -38,30 +59,29 @@
                     <div class="clearfix"></div>
                 </div>
                 <div id="bg-primary" class="panel-collapse collapse in">
-                    <div class="portlet-body">
+                    <div style="  padding-left: 250px;" class="portlet-body offset-1">
                         <div class="row">
                             <div class="col-md-3">
                                 <label >Etat</label>
-                                <select class="form-control" >
-                                    <option value="+47">Norge (+47)</option>
-                                    <option value="+46">Sverige (+46)</option>
-                                    <option value="+45">Danmark (+45)</option>
+                                <select [(ngModel)]="motetat" class="form-control" (change)="filtreEtat()" >
+                                    <option value="">Selectionner </option>
+                                    <option value="Non Livrer">Non Livrer</option>
+                                    <option value="Livrer Pas Payer">Livrer Pas Payer</option>
+                                    <option value="Livrer et Payer">Livrer et Payer</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <label >Boutique</label>
-                                <select class="form-control">
-                                    <option value="+47">Norge (+47)</option>
-                                    <option value="+46">Sverige (+46)</option>
-                                    <option value="+45">Danmark (+45)</option>
+                                <select [(ngModel)]="motboutique"  class="form-control" (change)="filtreEtat()">
+                                    <option value="">Selectionner </option>
+                                    <option value="{{x}}" *ngFor="let x of this.boutique">{{x}}</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <label >Secteur</label>
-                                <select class="form-control">
-                                    <option value="+47">Norge (+47)</option>
-                                    <option value="+46">Sverige (+46)</option>
-                                    <option value="+45">Danmark (+45)</option>
+                                <select  [(ngModel)]="motSecteur" class="form-control" (change)="filtreEtat()">
+                                    <option value="">Selectionner </option>
+                                    <option value="{{x}}" *ngFor="let x of this.secteur">{{x}}</option>
                                 </select>
                             </div>
 
@@ -70,6 +90,7 @@
                             <div class="col-md-3">
                                 <label >Date</label>
                                 <select class="form-control">
+                                    <option value="+47">Selectionner </option>
                                     <option value="+47">Norge (+47)</option>
                                     <option value="+46">Sverige (+46)</option>
                                     <option value="+45">Danmark (+45)</option>
@@ -78,17 +99,21 @@
                             <div class="col-md-3">
                                 <label >Jour</label>
                                 <select class="form-control">
-                                    <option value="+47">Norge (+47)</option>
-                                    <option value="+46">Sverige (+46)</option>
-                                    <option value="+45">Danmark (+45)</option>
+                                    <option value="+47">Selectionner </option>
+                                    <option value="+47">Lundi </option>
+                                    <option value="+46">Mardi </option>
+                                    <option value="+45">Mercredi </option>
+                                    <option value="+45">Jeudi </option>
+                                    <option value="+45">Vendredi </option>
+                                    <option value="+45">Samedi</option>
+                                    <option value="+45">Dimanche </option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <label >Prévendeur</label>
                                 <select class="form-control">
-                                    <option value="+47">Norge (+47)</option>
-                                    <option value="+46">Sverige (+46)</option>
-                                    <option value="+45">Danmark (+45)</option>
+                                    <option value="+47">Selectionner </option>
+                                    <option *ngFor="let x of this.prevendeur">{{x}}</option>
                                 </select>
                             </div>
 
@@ -111,6 +136,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
+
                 <div id="bg-primary" class="panel-collapse collapse in">
                     <div class="portlet-body">
                         <div class="table-responsive" *ngIf="commandes">
@@ -142,21 +168,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr *ngFor="let commande of commandes ;trackBy: trackId">
+                                <tr *ngFor="let commande of commandes ">
                                     <td><a [routerLink]="['/commande', commande.id, 'view' ]">{{commande.id}}</a></td>
                                     <!--<td>{{commande.numCom}}</td>-->
-                                    <td></td>
+                                    <td>{{commande.detailRoute.route.numero}}</td>
                                     <td>{{commande.dateCom | date:'mediumDate'}}</td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{commande.prevendeur.nomcomplet}}</td>
+                                    <td>{{commande.secteur.nomSecteur}}</td>
+                                    <td>{{commande.boutique.nomBoutique}}</td>
+                                    <td>{{commande.montantLiv*1+commande.montantRest*1}}</td>
                                     <td>
-                                        <select>
-                                            <option>Non Livrer</option>
-                                            <option>Livrer Pas Payer</option>
-                                            <option>Livrer et Payer</option>
+                                        <select  #selectElem  class="form-control" (change)="popUp(commande.id,selectElem.value)">
+                                            <option value="{{commande.etat}}">{{commande.etat}}</option>
+                                            <option *ngIf="commande.etat!='Non Livrer'" >Non Livrer</option>
+                                            <option *ngIf="commande.etat!='Livrer Pas Payer'" >Livrer Pas Payer</option>
+                                            <option *ngIf="commande.etat!='Livrer et Payer'" >Livrer et Payer</option>
                                         </select>
                                     </td>
                                     <!--

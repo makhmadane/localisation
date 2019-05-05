@@ -28,7 +28,7 @@
             "otherEntityName": "commande",
             "otherEntityRelationshipName": "detailRoute",
             "relationshipName": "commande",
-            "ownerSide": false
+            "ownerSide":true
         },
         {
             "relationshipType": "many-to-one",

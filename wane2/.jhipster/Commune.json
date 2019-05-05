@@ -25,7 +25,7 @@
             "otherEntityRelationshipName": "commune",
             "relationshipName": "secteur",
             "otherEntityField": "id",
-            "ownerSide": false
+            "ownerSide": true
         }
     ],
     "changelogDate": "20190420135144",
