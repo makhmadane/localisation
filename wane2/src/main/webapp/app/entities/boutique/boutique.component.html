@@ -1,15 +1,69 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="yesColaApp.boutique.home.title">Boutiques</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-boutique" [routerLink]="['/boutique/new']">
+
+        <button id="jh-create-entity"  style="float: right"   class="btn btn-primary float-right jh-create-entity create-boutique" [routerLink]="['/boutique/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="yesColaApp.boutique.home.createLabel">
-            Create new Boutique
+            <span class="hidden-sm-down"  >
+            Creer
             </span>
         </button>
     </h2>
+    <br>
+    <br>
     <jhi-alert></jhi-alert>
     <div class="row">
+        <div class="col-lg-12">
+            <div class="portlet">
+                <div class="portlet-heading bg-primary">
+                    <h3 class="portlet-title">
+                        Filtre Boutique
+                    </h3>
+                    <div class="portlet-widgets">
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="bg-primary" class="panel-collapse collapse in">
+                    <div style="  padding-left: 250px;" class="portlet-body offset-1">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label >Commmune</label>
+                                <select class="form-control">
+                                    <option value="+47">Selectionner </option>
+                                    <option value="+47">Norge (+47)</option>
+                                    <option value="+46">Sverige (+46)</option>
+                                    <option value="+45">Danmark (+45)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label >Prevendeur</label>
+                                <select class="form-control">
+                                    <option value="+47">Selectionner </option>
+                                    <option value="+47">Lundi </option>
+                                    <option value="+46">Mardi </option>
+                                    <option value="+45">Mercredi </option>
+                                    <option value="+45">Jeudi </option>
+                                    <option value="+45">Vendredi </option>
+                                    <option value="+45">Samedi</option>
+                                    <option value="+45">Dimanche </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label >Secteur</label>
+                                <select class="form-control">
+                                    <option value="+47">Selectionner </option>
+                                    <option *ngFor="let x of this.prevendeur">{{x}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- <div class="row">
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
@@ -23,103 +77,133 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div>-->
     <br/>
-    <div class="table-responsive" *ngIf="boutiques">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.nomBoutique">Nom Boutique</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.prenom">Prenom</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.civilite">Civilite</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.nom">Nom</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.telephone">Telephone</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.telproprietaire">Telproprietaire</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.longitude">Longitude</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.altitude">Altitude</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.etat">Etat</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.periodicite">Periodicite</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.dateDernierCom">Date Dernier Com</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.dateDernierLiv">Date Dernier Liv</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.solde">Solde</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.commandeEnCours">Commande En Cours</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.metier">Metier</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.qualite">Qualite</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.secteur">Secteur</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.route">Route</span></th>
-            <th><span jhiTranslate="yesColaApp.boutique.prospection">Prospection</span></th>
-            <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let boutique of boutiques ;trackBy: trackId">
-                <td><a [routerLink]="['/boutique', boutique.id, 'view' ]">{{boutique.id}}</a></td>
-                <td>{{boutique.nomBoutique}}</td>
-                <td>{{boutique.prenom}}</td>
-                <td jhiTranslate="{{'yesColaApp.Civilite.' + boutique.civilite}}">{{boutique.civilite}}</td>
-                <td>{{boutique.nom}}</td>
-                <td>{{boutique.telephone}}</td>
-                <td>{{boutique.telproprietaire}}</td>
-                <td>{{boutique.longitude}}</td>
-                <td>{{boutique.altitude}}</td>
-                <td>{{boutique.etat}}</td>
-                <td>{{boutique.periodicite}}</td>
-                <td>{{boutique.dateDernierCom}}</td>
-                <td>{{boutique.dateDernierLiv}}</td>
-                <td>{{boutique.solde}}</td>
-                <td>{{boutique.commandeEnCours}}</td>
-                <td>
-                    <div *ngIf="boutique.metier">
-                        <a [routerLink]="['../metier', boutique.metier?.id, 'view' ]" >{{boutique.metier?.id}}</a>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="portlet">
+                <div class="portlet-heading bg-primary">
+                    <h3 class="portlet-title">
+                       Liste des Boutiques
+                    </h3>
+                    <div class="portlet-widgets">
+
                     </div>
-                </td>
-                <td>
-                    <div *ngIf="boutique.qualite">
-                        <a [routerLink]="['../qualite', boutique.qualite?.id, 'view' ]" >{{boutique.qualite?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="boutique.secteur">
-                        <a [routerLink]="['../secteur', boutique.secteur?.id, 'view' ]" >{{boutique.secteur?.id}}</a>
-                    </div>
-                </td>
-                <td>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="bg-primary" class="panel-collapse collapse in">
+
+                        <div class="table-responsive" *ngIf="boutiques">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                   <!-- <th><span jhiTranslate="global.field.id">ID</span></th>-->
+                                    <th><span jhiTranslate="yesColaApp.boutique.nomBoutique">Nom Boutique</span></th>
+                                    <th><span >Prenom et Nom</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.qualite">Qualite</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.metier">Metier</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.telephone">Telephone</span></th>
+                                    <th><span >Prévendeur</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.secteur">Secteur</span></th>
+                                    <th><span >Commune</span></th>
+                                    <th><span >Commande</span></th>
+                                    <th><span >Options</span></th>
+                                   <!-- <th><span jhiTranslate="yesColaApp.boutique.secteur">Secteur</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.civilite">Civilite</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.nom">Nom</span></th>
+
+                                    <th><span jhiTranslate="yesColaApp.boutique.telproprietaire">Telproprietaire</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.longitude">Longitude</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.altitude">Altitude</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.etat">Etat</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.periodicite">Periodicite</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.dateDernierCom">Date Dernier Com</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.dateDernierLiv">Date Dernier Liv</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.solde">Solde</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.commandeEnCours">Commande En Cours</span></th>
+
+                                    <th><span jhiTranslate="yesColaApp.boutique.route">Route</span></th>
+                                    <th><span jhiTranslate="yesColaApp.boutique.prospection">Prospection</span></th>-->
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let boutique of boutiques ;trackBy: trackId">
+                                   <!-- <td><a [routerLink]="['/boutique', boutique.id, 'view' ]">{{boutique.id}}</a></td>-->
+                                    <td>{{boutique.nomBoutique}}</td>
+                                    <td>{{boutique.prenom}} {{boutique.nom}}</td>
+                                    <td>
+                                        <div *ngIf="boutique.qualite">
+                                            <a [routerLink]="['../qualite', boutique.qualite?.id, 'view' ]" >{{boutique.qualite?.id}}</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="boutique.metier">
+                                            <a [routerLink]="['../metier', boutique.metier?.id, 'view' ]" >{{boutique.metier?.id}}</a>
+                                        </div>
+                                    </td>
+                                    <td>{{boutique.telephone}}</td>
+                                    <td></td>
+                                    <td>
+                                        <div *ngIf="boutique.secteur">
+                                            <a [routerLink]="['../secteur', boutique.secteur?.id, 'view' ]" >{{boutique.secteur?.id}}</a>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                   <!--
+                                      <td jhiTranslate="{{'yesColaApp.Civilite.' + boutique.civilite}}">{{boutique.civilite}}</td>
+                                    <td></td>
+                                    <td>{{boutique.telproprietaire}}</td>
+                                    <td>{{boutique.longitude}}</td>
+                                    <td>{{boutique.altitude}}</td>
+                                    <td>{{boutique.etat}}</td>
+                                    <td>{{boutique.periodicite}}</td>
+                                    <td>{{boutique.dateDernierCom}}</td>
+                                    <td>{{boutique.dateDernierLiv}}</td>
+                                    <td>{{boutique.solde}}</td>
+                                    <td>{{boutique.commandeEnCours}}</td>-->
+
+
+                                 <!--   <td>
                     <span *ngFor="let route of boutique.routes; let last = last">
                             <a class="form-control-static" [routerLink]="['../route', route?.id, 'view' ]">{{route.id}}</a>{{last ? '' : ', '}}
                         </span>
-                </td>
-                <td>
-                    <div *ngIf="boutique.prospection">
-                        <a [routerLink]="['../prospection', boutique.prospection?.id, 'view' ]" >{{boutique.prospection?.id}}</a>
-                    </div>
-                </td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                [routerLink]="['/boutique', boutique.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/boutique', boutique.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'boutique', { outlets: { popup: boutique.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="boutique.prospection">
+                                            <a [routerLink]="['../prospection', boutique.prospection?.id, 'view' ]" >{{boutique.prospection?.id}}</a>
+                                        </div>
+                                    </td>-->
+                                    <td class="text-right">
+                                        <div class="btn-group flex-btn-group-container">
+
+                                            <button style="margin-right: 10px" type="button" class="btn btn-success col-md-12"      [routerLink]="['/boutique', boutique.id, 'view' ]">Encours</button>
+                                            <button style="margin-right: 10px" type="button" class="btn btn-info col-md-12"   [routerLink]="['/boutique', boutique.id, 'view' ]">Toutes</button>
+
+
+
+
+                                          <!--  <button type="submit"
+                                                    [routerLink]="['/', 'boutique', { outlets: { popup: boutique.id + '/delete'} }]"
+                                                    replaceUrl="true"
+                                                    queryParamsHandling="merge"
+                                                    class="btn btn-danger btn-sm">
+                                                <fa-icon [icon]="'times'"></fa-icon>
+                                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                            </button>-->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button style="margin-right: 10px" type="button" class="btn btn-outline-dark col-md-12"  [routerLink]="['/boutique', boutique.id, 'edit']">Edit</button>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
